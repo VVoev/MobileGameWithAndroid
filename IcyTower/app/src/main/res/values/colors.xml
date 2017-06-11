@@ -5,5 +5,6 @@
     <color name="menuOtherColors">#e5eadf</color>
     <color name="resultColor">#FFD32DE6</color>
     <color name="white">#ffffff</color>
+    <color name="highscoreColor">#000000</color>
 
 </resources>

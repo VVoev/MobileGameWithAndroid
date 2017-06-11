@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import me.icytower.Game.Core.Constants;
@@ -19,6 +20,7 @@ public class MyHighscore extends AppCompatActivity {
 
     private Button addToDb;
     private Button deleteFromDb;
+    private RelativeLayout relativeLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +31,26 @@ public class MyHighscore extends AppCompatActivity {
         userText = (EditText)findViewById(R.id.userText);
         addToDb = (Button)findViewById(R.id.addToDb);
         deleteFromDb = (Button)findViewById(R.id.deleteFromDb);
+        relativeLayout = (RelativeLayout)findViewById(R.id.highScoreRelativeLayout);
         dbManager = DbManager.getInstance(Constants.CONTEXT);
+
+        addToDb.setVisibility(View.INVISIBLE);
+        deleteFromDb.setVisibility(View.INVISIBLE);
+        userText.setVisibility(View.INVISIBLE);
+
+
         giveMeTopTenPlayers();
+
+        relativeLayout.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                //Debuging purposes ;)
+                addToDb.setVisibility(v.VISIBLE);
+                deleteFromDb.setVisibility(v.VISIBLE);
+                userText.setVisibility(v.VISIBLE);
+                return false;
+            }
+        });
     }
 
     public void addButtonClicked(View v){
@@ -54,5 +74,6 @@ public class MyHighscore extends AppCompatActivity {
         String databaseString = dbManager.giveMeBestTenPlayers();
         highscoreTextView.setText(databaseString);
     }
+
 
 }
