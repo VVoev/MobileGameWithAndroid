@@ -59,7 +59,7 @@ public class DbManager extends SQLiteOpenHelper {
         String name = score.getPlayerInitials();
         int points = score.getScore();
         values.put(COLUMN_NAME, score.getPlayerInitials());
-        values.put(COLUMN_SCORE,score.getScore());
+        values.put(COLUMN_SCORE, score.getScore());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_SCORES, null, values);
         db.close();
@@ -83,7 +83,6 @@ public class DbManager extends SQLiteOpenHelper {
         while (c.moveToNext()) {
             if (c.getString(c.getColumnIndex("playerInitials")) != null) {
                 dbString += c.getString(c.getColumnIndex("playerInitials"));
-                dbString += "\n";
             }
             if (c.getString(c.getColumnIndex("score")) != null) {
                 dbString += c.getString(c.getColumnIndex("score"));
@@ -93,4 +92,33 @@ public class DbManager extends SQLiteOpenHelper {
         db.close();
         return dbString;
     }
+
+    //Sort
+    public String giveMeBestTenPlayers() {
+        int i = 1;
+        String dbString = "";
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT " + COLUMN_NAME+"," +COLUMN_SCORE+ " FROM " + TABLE_SCORES + " ORDER BY " + COLUMN_SCORE + " DESC limit 10";
+
+        Cursor c = db.rawQuery(query, null);
+
+        while (c.moveToNext()) {
+            dbString+=i + ".";
+            if (c.getString(c.getColumnIndex("playerInitials")) != null) {
+                dbString += c.getString(c.getColumnIndex("playerInitials"));
+
+            }
+            dbString += " ";
+            if (c.getString(c.getColumnIndex("score")) != null) {
+                dbString += c.getString(c.getColumnIndex("score"));
+                dbString += "\n";
+            }
+            i++;
+        }
+
+        db.close();
+        return dbString;
+
+    }
 }
+

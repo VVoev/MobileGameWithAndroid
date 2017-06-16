@@ -35,8 +35,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:background="@drawable/roundshapebutton"
-        android:text="try again"
+        android:text="@string/tryAgain"
         android:onClick="tryAgain"
         android:textAllCaps="true"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/backbutton"
+        android:onClick="backClicked"
+        android:text="@string/backToHome"
+        android:textAllCaps="true" />
 
 </LinearLayout>

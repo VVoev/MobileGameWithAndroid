@@ -29,5 +29,5 @@ public class Constants {
     public static int COIN_PTS = 500;
 
     //Player name
-    public static String PLAYER_NAME;
+    public static String PLAYER_NAME = "Anonymous";
 }

@@ -55,5 +55,9 @@ public class Result extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(),NewGame.class));
     }
 
+    public void backClicked(View view){
+        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+    }
+
 
 }

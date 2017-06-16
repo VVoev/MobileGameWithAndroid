@@ -30,7 +30,7 @@ public class MyHighscore extends AppCompatActivity {
         addToDb = (Button)findViewById(R.id.addToDb);
         deleteFromDb = (Button)findViewById(R.id.deleteFromDb);
         dbManager = DbManager.getInstance(Constants.CONTEXT);
-        printDatabase();
+        giveMeTopTenPlayers();
     }
 
     public void addButtonClicked(View v){
@@ -47,6 +47,11 @@ public class MyHighscore extends AppCompatActivity {
 
     private void printDatabase() {
         String databaseString = dbManager.databaseToString();
+        highscoreTextView.setText(databaseString);
+    }
+
+    private void giveMeTopTenPlayers(){
+        String databaseString = dbManager.giveMeBestTenPlayers();
         highscoreTextView.setText(databaseString);
     }
 

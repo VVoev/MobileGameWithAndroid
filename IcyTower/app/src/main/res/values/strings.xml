@@ -8,4 +8,6 @@
     <string name="fullInstructions">nqkvi laina</string>
     <string name="yourPictureShouldBeHere">Picture of You</string>
     <string name="Save">Save</string>
+    <string name="tryAgain">Try Again</string>
+    <string name="backToHome">Back to Main</string>
 </resources>
