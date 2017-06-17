@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import me.icytower.Game.Core.Constants;
 import me.icytower.Game.Db.DbManager;
+import me.icytower.Game.Db.Scores;
 import me.icytower.R;
 
 public class Result extends AppCompatActivity {
@@ -31,6 +32,9 @@ public class Result extends AppCompatActivity {
         int score = getIntent().getIntExtra("SCORE",0);
         String playerName = Constants.PLAYER_NAME;
         scoreLabel.setText(score + "");
+
+        Scores playerDetails = new Scores(playerName,score);
+        dbManager.addNewScore(playerDetails);
 
         SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
         int highScore = settings.getInt("HIGHSCORE",0);

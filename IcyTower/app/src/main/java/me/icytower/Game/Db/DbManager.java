@@ -56,7 +56,10 @@ public class DbManager extends SQLiteOpenHelper {
     //ADD
     public void addNewScore(Scores score) {
         ContentValues values = new ContentValues();
+        String name = score.getPlayerInitials();
+        int points = score.getScore();
         values.put(COLUMN_NAME, score.getPlayerInitials());
+        values.put(COLUMN_SCORE,score.getScore());
         SQLiteDatabase db = getWritableDatabase();
         db.insert(TABLE_SCORES, null, values);
         db.close();
@@ -80,6 +83,10 @@ public class DbManager extends SQLiteOpenHelper {
         while (c.moveToNext()) {
             if (c.getString(c.getColumnIndex("playerInitials")) != null) {
                 dbString += c.getString(c.getColumnIndex("playerInitials"));
+                dbString += "\n";
+            }
+            if (c.getString(c.getColumnIndex("score")) != null) {
+                dbString += c.getString(c.getColumnIndex("score"));
                 dbString += "\n";
             }
         }

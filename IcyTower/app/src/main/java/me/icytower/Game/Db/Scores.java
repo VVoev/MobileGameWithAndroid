@@ -7,7 +7,10 @@ public class Scores {
 
     public Scores() {}
 
-    public Scores(String playerInitials) {this.playerInitials = playerInitials;}
+    public Scores(String playerInitials,int score) {
+        this.playerInitials = playerInitials;
+        this.score = score;
+    }
 
     public int getScore() {return score;}
 

@@ -105,6 +105,8 @@ public class GamePlayScene implements Scene {
             int elapsedTime = (int) (System.currentTimeMillis() - frameTime);
             frameTime = System.currentTimeMillis();
 
+
+            //TODO LOOK HERE IS THE BUG
             if (orientationData.getOrientation() != null && orientationData.getOrientation() != null) {
                 float pitch = orientationData.getOrientation()[1] - orientationData.getStartOrientation()[1];
                 float roll = orientationData.getOrientation()[2] - orientationData.getStartOrientation()[2];
