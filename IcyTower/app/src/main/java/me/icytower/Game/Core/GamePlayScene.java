@@ -28,7 +28,6 @@ public class GamePlayScene implements Scene {
     private RectPlayer player;
     private Point playerPoint;
     private ObstacleManager obstacleManager;
-    private DbManager dbManager;
 
     private Display display;
 

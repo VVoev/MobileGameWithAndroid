@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         DbManager dbManager = DbManager.getInstance(this);
+
     }
 
     public void initializeNewGame (View view) {

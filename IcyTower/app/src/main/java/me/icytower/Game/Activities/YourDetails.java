@@ -9,15 +9,18 @@ import android.support.v4.print.PrintHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import me.icytower.Game.Core.Constants;
 import me.icytower.R;
 
 public class YourDetails extends AppCompatActivity {
 
     private Button cameraButton;
     private ImageView iv;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +28,7 @@ public class YourDetails extends AppCompatActivity {
         setContentView(R.layout.activity_your_details);
 
         cameraButton = (Button) findViewById(R.id.yourDetails);
-        iv = (ImageView) findViewById(R.id.yourPicture);
+        //iv = (ImageView) findViewById(R.id.yourPicture);
 
         cameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,5 +44,15 @@ public class YourDetails extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         Bitmap bitmap = (Bitmap)data.getExtras().get("data");
         iv.setImageBitmap(bitmap);
+    }
+
+    public void saveName(View view){
+        EditText userInput = (EditText)findViewById(R.id.yourName);
+        String yourName = userInput.getText().toString();
+        userInput.setText("");
+        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        intent.putExtra("NAME",yourName);
+        Constants.PLAYER_NAME = yourName;
+        startActivity(intent);
     }
 }

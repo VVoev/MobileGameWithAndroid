@@ -27,4 +27,7 @@ public class Constants {
 
     //Coin bonus pts
     public static int COIN_PTS = 500;
+
+    //Player name
+    public static String PLAYER_NAME;
 }
