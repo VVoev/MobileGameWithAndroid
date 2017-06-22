@@ -15,6 +15,7 @@ import android.view.MotionEvent;
 import me.icytower.Game.Activities.Result;
 import me.icytower.Game.Contracts.Scene;
 import me.icytower.Game.Core.Sound.SoundManager;
+import me.icytower.Game.Db.DbManager;
 import me.icytower.R;
 
 
@@ -27,6 +28,7 @@ public class GamePlayScene implements Scene {
     private RectPlayer player;
     private Point playerPoint;
     private ObstacleManager obstacleManager;
+    private DbManager dbManager;
 
     private Display display;
 

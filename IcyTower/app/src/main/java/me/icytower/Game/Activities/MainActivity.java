@@ -7,6 +7,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 
 import me.icytower.Game.Core.Constants;
+import me.icytower.Game.Db.DbManager;
 import me.icytower.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        DbManager dbManager = DbManager.getInstance(this);
     }
 
     public void initializeNewGame (View view) {

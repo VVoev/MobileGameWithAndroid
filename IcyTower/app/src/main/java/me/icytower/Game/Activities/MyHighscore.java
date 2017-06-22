@@ -7,14 +7,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import me.icytower.Game.Core.Constants;
 import me.icytower.Game.Db.DbManager;
 import me.icytower.Game.Db.Scores;
 import me.icytower.R;
 
 public class MyHighscore extends AppCompatActivity {
     private TextView highscoreTextView;
-    private DbManager dbManager;
     private EditText userText;
+    private DbManager dbManager;
 
     private Button addToDb;
     private Button deleteFromDb;
@@ -28,9 +29,7 @@ public class MyHighscore extends AppCompatActivity {
         userText = (EditText)findViewById(R.id.userText);
         addToDb = (Button)findViewById(R.id.addToDb);
         deleteFromDb = (Button)findViewById(R.id.deleteFromDb);
-
-        dbManager = new DbManager(this, null, null, 1);
-        printDatabase();
+        dbManager = DbManager.getInstance(Constants.CONTEXT);
     }
 
     public void addButtonClicked(View v){

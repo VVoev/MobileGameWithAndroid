@@ -8,22 +8,41 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DbManager extends SQLiteOpenHelper {
 
+    private static DbManager sInstance;
+
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "scores.db";
 
     public static final String TABLE_SCORES = "scores";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_NAME = "playerInitials";
+    public static final String COLUMN_SCORE = "score";
+
 
     public DbManager(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+    }
+
+    private DbManager(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    public static synchronized DbManager getInstance(Context context) {
+        // Use the application context, which will ensure that you
+        // don't accidentally leak an Activity's context.
+        // See this article for more information: http://bit.ly/6LRzfx
+        if (sInstance == null) {
+            sInstance = new DbManager(context.getApplicationContext());
+        }
+        return sInstance;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_SCORES + "(" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ," +
-                COLUMN_NAME + " TEXT " +
+                COLUMN_NAME + " TEXT ," +
+                COLUMN_SCORE + " INTEGER " +
                 ");";
         db.execSQL(query);
     }

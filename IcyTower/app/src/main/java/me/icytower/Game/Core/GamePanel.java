@@ -14,6 +14,7 @@ import android.graphics.Point;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import me.icytower.Game.Db.DbManager;
 import me.icytower.R;
 
 
@@ -21,6 +22,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     private MainThread thread;
     private SceneManager manager;
+    private DbManager dbManager;
 
     public GamePanel(Context context) {
         //don`t touch the parameters or it will explode
@@ -29,6 +31,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         Constants.CONTEXT = context;
         thread = new MainThread(getHolder(), this);
         manager = new SceneManager();
+        this.dbManager = DbManager.getInstance(context);
+
         setFocusable(true);
     }
 
