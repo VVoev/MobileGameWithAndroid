@@ -39,6 +39,12 @@ public class MyHighscore extends AppCompatActivity {
         printDatabase();
     }
 
+    public void deleteButtonClicked(View v){
+        String name = userText.getText().toString();
+        dbManager.deleteScore(name);
+        printDatabase();
+    }
+
     private void printDatabase() {
         String databaseString = dbManager.databaseToString();
         highscoreTextView.setText(databaseString);
