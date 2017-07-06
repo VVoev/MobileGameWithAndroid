@@ -3,7 +3,6 @@ package me.icytower.Game.Core;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.constraint.solver.widgets.Rectangle;
 
 import java.util.Random;
 
@@ -36,6 +35,9 @@ public class Coin implements GameObject {
         Paint paint = new Paint();
         paint.setColor(color);
         if (!isCoinTakenByThePlayer(player)) {
+            //BitmapFactory bf = new BitmapFactory();
+            //Bitmap image = bf.decodeResource(Constants.CONTEXT.getResources(), R.drawable.f1);
+            //canvas.drawBitmap(image,rectangle.left,rectangle.top,null);
             canvas.drawRect(rectangle, paint);
         } else {
             soundManager.playBonusSound();
