@@ -1,15 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/icytower2"
     tools:context="me.icytower.Game.Activities.MyHighscore">
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/addLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/menuOtherColors"
-        android:textSize="@dimen/button_margin"
-        android:text="HighScora trqbva da e tuk"/>
-</android.support.constraint.ConstraintLayout>
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3">
+        <Button
+            android:id="@+id/addToDb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:layout_weight="2"
+            android:background="@drawable/roundshapebutton"
+            android:text="Add"
+            android:onClick="addButtonClicked"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/deleteLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addLayout"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3">
+        <Button
+            android:id="@+id/deleteFromDb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/button_margin"
+            android:layout_weight="2"
+            android:background="@drawable/roundshapebutton"
+            android:text="Delete"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/editLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/deleteLayout"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3">
+        <EditText
+            android:id="@+id/userText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/button_margin"
+            android:layout_weight="2"
+            android:background="@color/menuOtherColors"
+            android:text=""
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/resultLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editLayout"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3">
+        <TextView
+            android:id="@+id/highScoreTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/button_margin"
+            android:layout_weight="2"
+            android:background="@color/resultColor"
+            android:text=""
+            android:textSize="20sp" />
+    </LinearLayout>
+
+
+
+</RelativeLayout>

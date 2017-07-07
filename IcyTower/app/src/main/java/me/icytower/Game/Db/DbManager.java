@@ -2,6 +2,7 @@ package me.icytower.Game.Db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -21,7 +22,7 @@ public class DbManager extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_SCORES + "(" +
-                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT " +
+                COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT ," +
                 COLUMN_NAME + " TEXT " +
                 ");";
         db.execSQL(query);
@@ -46,5 +47,24 @@ public class DbManager extends SQLiteOpenHelper {
     public void deleteScore(String playerInitials) {
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("DELETE FROM " + TABLE_SCORES + " WHERE " + COLUMN_NAME + "=\"" + playerInitials + "\";");
+    }
+
+    //DEBUG PRINT DATABASE
+    public String databaseToString() {
+        String dbString = "";
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "SELECT * FROM " + TABLE_SCORES;
+
+        Cursor c = db.rawQuery(query, null);
+        //c.moveToFirst();
+
+        while (c.moveToNext()) {
+            if (c.getString(c.getColumnIndex("playerInitials")) != null) {
+                dbString += c.getString(c.getColumnIndex("playerInitials"));
+                dbString += "\n";
+            }
+        }
+        db.close();
+        return dbString;
     }
 }

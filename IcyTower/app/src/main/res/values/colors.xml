@@ -3,4 +3,5 @@
     <color name="colorPrimary">#00cbf9</color>
     <color name="menuPrimaryDark">#000000</color>
     <color name="menuOtherColors">#e5eadf</color>
+    <color name="resultColor">#FFD32DE6</color>
 </resources>
