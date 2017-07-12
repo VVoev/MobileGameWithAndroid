@@ -14,6 +14,7 @@ import android.view.MotionEvent;
 
 import me.icytower.Game.Activities.Result;
 import me.icytower.Game.Contracts.Scene;
+import me.icytower.Game.Core.Sound.SoundManager;
 import me.icytower.R;
 
 
@@ -22,7 +23,7 @@ public class GamePlayScene implements Scene {
     private SceneManager manager;
     private Rect r = new Rect();
 
-
+    private SoundManager soundManager;
     private RectPlayer player;
     private Point playerPoint;
     private ObstacleManager obstacleManager;
@@ -54,6 +55,7 @@ public class GamePlayScene implements Scene {
                 Color.BLACK,
                 player);
         coin = new Coin(50,50,150,Color.rgb(255,0,0),player,obstacleManager);
+        soundManager = new SoundManager(Constants.CONTEXT);
 
 
         orientationData = new OrientationData();
@@ -121,6 +123,7 @@ public class GamePlayScene implements Scene {
         }
 
         if (obstacleManager.playerCollide(player) && !isGameOver) {
+            soundManager.playHitSound();
             isGameOver = true;
             gameOverTime = System.currentTimeMillis();
 

@@ -8,12 +8,14 @@ import android.support.constraint.solver.widgets.Rectangle;
 import java.util.Random;
 
 import me.icytower.Game.Contracts.GameObject;
+import me.icytower.Game.Core.Sound.SoundManager;
 
 public class Coin implements GameObject {
     private Rect rectangle;
     private int color;
     private RectPlayer player;
     private ObstacleManager manager;
+    private SoundManager soundManager;
 
     public Coin(int rectHeight, int startX, int startY, int color, RectPlayer player, ObstacleManager manager) {
         this.color = color;
@@ -26,6 +28,7 @@ public class Coin implements GameObject {
 
         this.player = player;
         this.manager = manager;
+        this.soundManager = new SoundManager(Constants.CONTEXT);
     }
 
     @Override
@@ -35,6 +38,7 @@ public class Coin implements GameObject {
         if (!isCoinTakenByThePlayer(player)) {
             canvas.drawRect(rectangle, paint);
         } else {
+            soundManager.playBonusSound();
             generateCoinRandomPosition();
             int currentScore = manager.getScore();
             int newScore = currentScore + Constants.COIN_PTS;
