@@ -135,7 +135,7 @@ public class GamePlayScene implements Scene {
     public void draw(Canvas canvas) {
         //TODO REPLACE THE CANVAS WITH PICTURE
         BitmapFactory bf = new BitmapFactory();
-        Bitmap image = bf.decodeResource(Constants.CONTEXT.getResources(), R.drawable.x1);
+        Bitmap image = bf.decodeResource(Constants.CONTEXT.getResources(), R.drawable.x2);
         canvas.drawBitmap(image,0,0,null);
         //canvas.drawColor(Color.YELLOW);
 
