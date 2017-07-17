@@ -35,6 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="try again"
+        android:onClick="tryAgain"
         android:textAllCaps="true"/>
 
 </LinearLayout>

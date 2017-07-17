@@ -7,13 +7,10 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Picture;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.provider.Settings;
 import android.view.Display;
 import android.view.MotionEvent;
-import android.widget.Toast;
 
 import me.icytower.Game.Activities.Result;
 import me.icytower.Game.Contracts.Scene;
@@ -126,16 +123,21 @@ public class GamePlayScene implements Scene {
         if (obstacleManager.playerCollide(player) && !isGameOver) {
             isGameOver = true;
             gameOverTime = System.currentTimeMillis();
+
+            Intent intent = new Intent(Constants.CONTEXT.getApplicationContext(),Result.class);
+            int score = obstacleManager.getScore();
+            intent.putExtra("SCORE",score);
+            Constants.CONTEXT.startActivity(intent);
         }
     }
 
     @Override
     public void draw(Canvas canvas) {
         //TODO REPLACE THE CANVAS WITH PICTURE
-        //BitmapFactory bf = new BitmapFactory();
-        //Bitmap image = bf.decodeResource(Constants.CONTEXT.getResources(),R.drawable.rules);
-        //canvas.drawBitmap(image,0,0,null);
-        canvas.drawColor(Color.YELLOW);
+        BitmapFactory bf = new BitmapFactory();
+        Bitmap image = bf.decodeResource(Constants.CONTEXT.getResources(), R.drawable.x1);
+        canvas.drawBitmap(image,0,0,null);
+        //canvas.drawColor(Color.YELLOW);
 
         player.draw(canvas);
         obstacleManager.draw(canvas);
@@ -146,6 +148,7 @@ public class GamePlayScene implements Scene {
             paint.setTextSize(100);
             paint.setColor(Color.BLUE);
             //TODO implement fucking intent getApplicationContext() which for some fuckin reason is not working
+            int points = obstacleManager.getScore();
             drawGameOver(canvas, paint, Constants.GAME_OVER);
         }
     }
@@ -181,14 +184,14 @@ public class GamePlayScene implements Scene {
     }
 
     private void drawGameOver(Canvas canvas, Paint paint, String text) {
-        paint.setTextAlign(Paint.Align.LEFT);
-        paint.setColor(Color.rgb(6, 213, 249));
-        canvas.getClipBounds(r);
-        int cHeight = r.height();
-        int cWidth = r.width();
-        paint.getTextBounds(text, 0, text.length(), r);
-        float x = cWidth / 2f - r.width() / 2f - r.left;
-        float y = cHeight / 2f - r.height() / 2f - r.bottom;
-        canvas.drawText(text, x, y, paint);
+       paint.setTextAlign(Paint.Align.LEFT);
+       paint.setColor(Color.rgb(6, 213, 249));
+       canvas.getClipBounds(r);
+       int cHeight = r.height();
+       int cWidth = r.width();
+       paint.getTextBounds(text, 0, text.length(), r);
+       float x = cWidth / 2f - r.width() / 2f - r.left;
+       float y = cHeight / 2f - r.height() / 2f - r.bottom;
+       canvas.drawText(text, x, y, paint);
     }
 }

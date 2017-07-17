@@ -77,7 +77,7 @@ public class ObstacleManager implements GameObject {
             ob.draw(canvas);
         }
         Paint paint = new Paint();
-        paint.setColor(Color.BLUE);
+        paint.setColor(Color.YELLOW);
         paint.setTextSize(100);
         canvas.drawText("" + score, 50, 50 + paint.descent() - paint.ascent(), paint);
     }

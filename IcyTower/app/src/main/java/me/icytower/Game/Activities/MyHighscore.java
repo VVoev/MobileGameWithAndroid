@@ -1,5 +1,6 @@
 package me.icytower.Game.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -12,4 +13,5 @@ public class MyHighscore extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_highscore);
     }
+
 }

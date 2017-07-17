@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         Constants.SCREEN_WIDTH = dm.widthPixels;
         Constants.SCREEN_HEIGHT = dm.heightPixels;
-
     }
 
     public void loadHighScores(View view) {
@@ -47,4 +46,9 @@ public class MainActivity extends AppCompatActivity {
         Intent result = new Intent(this,Result.class);
         startActivity(result);
     }
+
+    private void changeActivity(View view){
+
+    }
+
 }

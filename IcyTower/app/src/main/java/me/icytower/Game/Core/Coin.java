@@ -37,9 +37,7 @@ public class Coin implements GameObject {
         } else {
             generateCoinRandomPosition();
             int currentScore = manager.getScore();
-            System.out.println(currentScore);
             int newScore = currentScore + Constants.COIN_PTS;
-            System.out.println(newScore);
             manager.setScore(newScore);
         }
     }
