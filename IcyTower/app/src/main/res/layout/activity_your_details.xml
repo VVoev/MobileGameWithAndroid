@@ -10,7 +10,7 @@
         androidtools:layout_editor_absoluteX="8dp">
 
         <Button
-            android:id="@+id/showInstructions"
+            android:id="@+id/yourDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/button_margin"
@@ -19,5 +19,14 @@
             android:onClick="MakePhoto"
             android:text="@string/make_photo"
             android:textSize="20sp" />
+        <ImageView
+            android:id="@+id/yourPicture"
+            android:contentDescription="string/yourPictureShouldBeHere"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/imagePath"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </RelativeLayout>

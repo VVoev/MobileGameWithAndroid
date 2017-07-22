@@ -16,13 +16,10 @@ public class Instructions extends AppCompatActivity {
     TextView txt;
     ImageView iv;
 
-    String textInfo = "1.Avoid the barriers" +
-            "2.Collect prisoners"+
-            "3.You can use the android gyroscope or you can move the police car with finger";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_instructions);
         btn = (Button) findViewById(R.id.showInstructionsButton);
         txt = (TextView) findViewById(R.id.instructionsLabel);
@@ -46,6 +43,7 @@ public class Instructions extends AppCompatActivity {
         btn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                //Debuging purposes ;)
                 txt.setText("Hello Vlado,Nice to see you");
                 return false;
             }
