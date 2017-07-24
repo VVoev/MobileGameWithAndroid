@@ -2,9 +2,12 @@ package me.icytower.Game.Core;
 
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Picture;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.provider.Settings;
@@ -14,7 +17,7 @@ import android.widget.Toast;
 
 import me.icytower.Game.Activities.Result;
 import me.icytower.Game.Contracts.Scene;
-
+import me.icytower.R;
 
 
 public class GamePlayScene implements Scene {
@@ -128,8 +131,11 @@ public class GamePlayScene implements Scene {
 
     @Override
     public void draw(Canvas canvas) {
-
-        canvas.drawColor(Color.WHITE);
+        //TODO REPLACE THE CANVAS WITH PICTURE
+        //BitmapFactory bf = new BitmapFactory();
+        //Bitmap image = bf.decodeResource(Constants.CONTEXT.getResources(),R.drawable.rules);
+        //canvas.drawBitmap(image,0,0,null);
+        canvas.drawColor(Color.YELLOW);
 
         player.draw(canvas);
         obstacleManager.draw(canvas);

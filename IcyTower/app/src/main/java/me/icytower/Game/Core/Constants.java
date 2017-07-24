@@ -18,7 +18,7 @@ public class Constants {
     public static int GAME_SPEED = 10;
     public static long INIT_TIME;
     public static int OFFSET = 50;
-    public static int BORDER = 75;
+    public static int BORDER = 75; //it is used for putting the coin into the main rectangle
     //Gyroscope
     public static float SLOW_THE_TIME = 1000f;
 
@@ -27,5 +27,4 @@ public class Constants {
 
     //Coin bonus pts
     public static int COIN_PTS = 500;
-    public static int START_COINTS = 0;
 }
