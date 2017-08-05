@@ -32,6 +32,8 @@ public class GamePlayScene implements Scene {
     private OrientationData orientationData;
     private long frameTime;
 
+    private Coin coin;
+
     /*best params
      100 100 200 200        debelina na kvadrata 3ti i 4ti parametur
      */
@@ -39,6 +41,7 @@ public class GamePlayScene implements Scene {
     public GamePlayScene() {
         player = new RectPlayer(new Rect(100, 100, 300, 200), Color.rgb(255, 0, 0));
         playerPoint = new Point(Constants.SCREEN_WIDTH / 2, 3 * Constants.SCREEN_HEIGHT / 4);
+        coin = new Coin(100,150,150,Color.rgb(255,0,0));
         player.update(playerPoint);
         obstacleManager = new ObstacleManager(
                 Constants.LEVEL_WHOLEWIDTH,
@@ -51,6 +54,23 @@ public class GamePlayScene implements Scene {
         orientationData.register();
         frameTime = System.currentTimeMillis();
     }
+
+    private void checkForOffScreen(Point playerPoint) {
+        if(playerPoint.x < 0){
+            playerPoint.x = 0;
+        }
+        else  if(playerPoint.x > Constants.SCREEN_WIDTH){
+            playerPoint.x = Constants.SCREEN_WIDTH;
+        }
+
+        if(playerPoint.y < 0){
+            playerPoint.y = 0;
+        }
+        else if(playerPoint.y > Constants.SCREEN_HEIGHT){
+            playerPoint.y = Constants.SCREEN_HEIGHT;
+        }
+    }
+
 
     private void reset() {
         playerPoint = new Point(Constants.SCREEN_WIDTH / 2, 3 * Constants.SCREEN_HEIGHT / 4);
@@ -91,27 +111,12 @@ public class GamePlayScene implements Scene {
 
             player.update(playerPoint);
             obstacleManager.update();
+            coin.update();
         }
 
         if (obstacleManager.playerCollide(player) && !isGameOver) {
             isGameOver = true;
             gameOverTime = System.currentTimeMillis();
-        }
-    }
-
-    private void checkForOffScreen(Point playerPoint) {
-        if(playerPoint.x < 0){
-            playerPoint.x = 0;
-        }
-        else  if(playerPoint.x > Constants.SCREEN_WIDTH){
-            playerPoint.x = Constants.SCREEN_WIDTH;
-        }
-
-        if(playerPoint.y < 0){
-            playerPoint.y = 0;
-        }
-        else if(playerPoint.y > Constants.SCREEN_HEIGHT){
-            playerPoint.y = Constants.SCREEN_HEIGHT;
         }
     }
 
@@ -122,6 +127,7 @@ public class GamePlayScene implements Scene {
 
         player.draw(canvas);
         obstacleManager.draw(canvas);
+        coin.draw(canvas);
 
         if (isGameOver) {
             Paint paint = new Paint();
