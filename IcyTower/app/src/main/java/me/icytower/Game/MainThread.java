@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.provider.Settings;
 import android.view.SurfaceHolder;
 
-public class MainThread extends Thread {
+public class    MainThread extends Thread {
 
     private static final int ONE_MILLION = 1_000_000;
     private static final int MAX_FPS = 30;
