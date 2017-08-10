@@ -4,6 +4,8 @@
       <w>highscore</w>
       <w>newgame</w>
       <w>obstaces</w>
+      <w>obstaclethickness</w>
+      <w>wholewidth</w>
     </words>
   </dictionary>
 </component>
