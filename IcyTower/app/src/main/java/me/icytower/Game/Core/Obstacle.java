@@ -1,12 +1,8 @@
-package me.icytower.Game;
+package me.icytower.Game.Core;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-
-import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import me.icytower.Game.Contracts.GameObject;
 

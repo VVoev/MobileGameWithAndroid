@@ -1,18 +1,15 @@
-package me.icytower.Game;
+package me.icytower.Game.Core;
 
 
-import android.app.FragmentManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
-import android.provider.ContactsContract;
 
 import java.util.ArrayList;
 
 import me.icytower.Game.Contracts.GameObject;
 
-public class ObstacleManager {
+public class ObstacleManager implements GameObject {
 
     private ArrayList<Obstacle> obstacles;
     private int playerGap;

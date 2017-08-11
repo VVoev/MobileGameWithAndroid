@@ -1,18 +1,21 @@
-package me.icytower.Game;
+package me.icytower.Game.Core;
 
 
-import android.bluetooth.BluetoothClass;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.util.DisplayMetrics;
+import android.graphics.drawable.Drawable;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.graphics.Point;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import me.icytower.R;
+
 
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
@@ -46,6 +49,11 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
                 Constants.LEVEL_OBSTACLETHICKNESS,
                 Color.BLACK,
                 player);
+
+
+        //need to import picture
+        Resources res = getResources();
+        Drawable drawable = res.getDrawable(R.drawable.icytower2);
 
         setFocusable(true);
     }
@@ -135,7 +143,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     public void draw(Canvas canvas) {
         super.draw(canvas);
 
-        canvas.drawColor(Color.WHITE);
+        canvas.drawColor(Color.GREEN);
 
         player.draw(canvas);
         obstacleManager.draw(canvas);
@@ -144,13 +152,13 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
             Paint paint = new Paint();
             paint.setTextSize(100);
             paint.setColor(Color.BLUE);
-            drawGameOver(canvas,paint,Constants.GAME_OVER);
+            drawGameOver(canvas, paint, Constants.GAME_OVER);
         }
     }
 
     private void drawGameOver(Canvas canvas, Paint paint, String text) {
         paint.setTextAlign(Paint.Align.LEFT);
-        paint.setColor(Color.rgb(6,213,249));
+        paint.setColor(Color.rgb(6, 213, 249));
         canvas.getClipBounds(r);
         int cHeight = r.height();
         int cWidth = r.width();

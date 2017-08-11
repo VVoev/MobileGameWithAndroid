@@ -1,4 +1,4 @@
-package me.icytower;
+package me.icytower.Game.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 
-import me.icytower.Game.Constants;
+import me.icytower.Game.Core.Constants;
+import me.icytower.R;
 
 public class MainActivity extends AppCompatActivity {
 

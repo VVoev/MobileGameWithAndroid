@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/icytower2"
-    tools:context="me.icytower.MainActivity">
+    tools:context="me.icytower.Game.Activities.MainActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout1"

@@ -1,14 +1,11 @@
-package me.icytower;
+package me.icytower.Game.Activities;
 
 import android.app.Activity;
-import android.os.PersistableBundle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Window;
 import android.view.WindowManager;
 
-import me.icytower.Game.GamePanel;
+import me.icytower.Game.Core.GamePanel;
 
 public class NewGame extends Activity {
 

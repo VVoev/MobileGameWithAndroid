@@ -1,7 +1,6 @@
-package me.icytower.Game;
+package me.icytower.Game.Core;
 
 import android.graphics.Canvas;
-import android.provider.Settings;
 import android.view.SurfaceHolder;
 
 public class    MainThread extends Thread {

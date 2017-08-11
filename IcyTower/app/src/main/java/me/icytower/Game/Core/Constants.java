@@ -1,4 +1,4 @@
-package me.icytower.Game;
+package me.icytower.Game.Core;
 
 public class Constants {
 

@@ -1,4 +1,4 @@
-package me.icytower.Game;
+package me.icytower.Game.Core;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
