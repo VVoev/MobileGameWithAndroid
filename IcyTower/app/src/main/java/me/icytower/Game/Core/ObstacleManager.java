@@ -34,7 +34,6 @@ public class ObstacleManager implements GameObject {
         startTime = System.currentTimeMillis();
         obstacles = new ArrayList<>();
         populateObstaces();
-        System.out.println("Ot obstacle managera");
     }
     public int getScore(){
         return this.score;

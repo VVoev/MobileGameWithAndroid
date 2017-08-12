@@ -18,6 +18,7 @@ public class Constants {
     public static int GAME_SPEED = 10;
     public static long INIT_TIME;
     public static int OFFSET = 50;
+    public static int BORDER = 75;
     //Gyroscope
     public static float SLOW_THE_TIME = 1000f;
 

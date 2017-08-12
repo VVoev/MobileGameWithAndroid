@@ -9,13 +9,13 @@ import java.util.Random;
 
 import me.icytower.Game.Contracts.GameObject;
 
-public class Coin implements GameObject{
+public class Coin implements GameObject {
     private Rect rectangle;
     private int color;
     private RectPlayer player;
     private ObstacleManager manager;
 
-    public Coin(int rectHeight,int startX,int startY,int color,RectPlayer player,ObstacleManager manager){
+    public Coin(int rectHeight, int startX, int startY, int color, RectPlayer player, ObstacleManager manager) {
         this.color = color;
 
         //fixed starting position
@@ -32,27 +32,26 @@ public class Coin implements GameObject{
     public void draw(Canvas canvas) {
         Paint paint = new Paint();
         paint.setColor(color);
-        if(!isCoinTakenByThePlayer(player)){
-            canvas.drawRect(rectangle,paint);
-        }
-        else{
+        if (!isCoinTakenByThePlayer(player)) {
+            canvas.drawRect(rectangle, paint);
+        } else {
             generateCoinRandomPosition();
             int currentScore = manager.getScore();
             System.out.println(currentScore);
-            int newScore = currentScore+Constants.COIN_PTS;
+            int newScore = currentScore + Constants.COIN_PTS;
             System.out.println(newScore);
             manager.setScore(newScore);
         }
     }
 
 
-    private void generateCoinRandomPosition(){
+    private void generateCoinRandomPosition() {
         Random r = new Random();
-        int low = 100;
-        int high = Constants.SCREEN_WIDTH;
-        int first = r.nextInt(high-low) + low;
-        int second = r.nextInt(high-low)+low;
-        this.rectangle = new Rect(first,second,first+Constants.OFFSET,second+Constants.OFFSET);
+        int low = 100 + Constants.BORDER;
+        int high = Constants.SCREEN_WIDTH - Constants.BORDER;
+        int first = r.nextInt(high - low) + low;
+        int second = r.nextInt(high - low) + low;
+        this.rectangle = new Rect(first, second, first + Constants.OFFSET, second + Constants.OFFSET);
     }
 
     @Override
@@ -60,7 +59,7 @@ public class Coin implements GameObject{
 
     }
 
-    public boolean isCoinTakenByThePlayer(RectPlayer player){
-        return Rect.intersects(rectangle,player.getRectangle());
+    public boolean isCoinTakenByThePlayer(RectPlayer player) {
+        return Rect.intersects(rectangle, player.getRectangle());
     }
 }
