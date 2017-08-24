@@ -3,6 +3,8 @@ package me.icytower.Game;
 
 import android.app.FragmentManager;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.provider.ContactsContract;
 
@@ -17,6 +19,7 @@ public class ObstacleManager {
     private int obstacleGap;
     private int obstacleHeight;
     private int color;
+    private int score = 0;
 
     //speed of dropping the obstacles above
     private float superSpeed = 1;
@@ -39,8 +42,8 @@ public class ObstacleManager {
         startTime = System.currentTimeMillis();
         float speed = (Constants.SCREEN_HEIGHT / 10000.0f);
         for (Obstacle ob : obstacles) {
-            superSpeed +=0.0003f;
-            ob.incrementY((speed * elapsedTime)+superSpeed);
+            superSpeed += 0.0003f;
+            ob.incrementY((speed * elapsedTime) + superSpeed);
         }
 
         if (obstacles.get(obstacles.size() - 1).getRectangle().top >= Constants.SCREEN_HEIGHT) {
@@ -49,7 +52,9 @@ public class ObstacleManager {
             obstacles.add(0, new Obstacle(
                     obstacleHeight, color, xStart, obstacles.get(0).getRectangle().top -
                     obstacleHeight - obstacleGap, playerGap));
-            obstacles.remove(obstacles.size()-1);
+            obstacles.remove(obstacles.size() - 1);
+            score++;
+            System.out.println(score);
 
         }
     }
@@ -58,11 +63,15 @@ public class ObstacleManager {
         for (Obstacle ob : obstacles) {
             ob.draw(canvas);
         }
+        Paint paint = new Paint();
+        paint.setColor(Color.BLUE);
+        paint.setTextSize(100);
+        canvas.drawText(""+score,50,50+paint.descent()-paint.ascent(),paint);
     }
 
-    public boolean playerCollide(RectPlayer player){
-        for (Obstacle ob : obstacles){
-            if(ob.isPlayerColiding(player)){
+    public boolean playerCollide(RectPlayer player) {
+        for (Obstacle ob : obstacles) {
+            if (ob.isPlayerColiding(player)) {
                 return true;
             }
         }
