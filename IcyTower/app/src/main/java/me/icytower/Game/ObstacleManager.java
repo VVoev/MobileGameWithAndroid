@@ -20,17 +20,19 @@ public class ObstacleManager {
     private int obstacleHeight;
     private int color;
     private int score = 0;
+    private RectPlayer player;
 
     //speed of dropping the obstacles above
     private float superSpeed = 1;
 
     private long startTime;
 
-    public ObstacleManager(int playerGap, int obstacleGap, int obstacleHeight, int color) {
+    public ObstacleManager(int playerGap, int obstacleGap, int obstacleHeight, int color,RectPlayer player) {
         this.playerGap = playerGap;
         this.obstacleGap = obstacleGap;
         this.obstacleHeight = obstacleHeight;
         this.color = color;
+        this.player = player;
 
         startTime = System.currentTimeMillis();
         obstacles = new ArrayList<>();
@@ -42,7 +44,13 @@ public class ObstacleManager {
         startTime = System.currentTimeMillis();
         float speed = (Constants.SCREEN_HEIGHT / 10000.0f);
         for (Obstacle ob : obstacles) {
-            superSpeed += 0.0003f;
+            if(player.getRectangle().top > ob.getRectangle().top){
+                score++;
+                if(score % Constants.GAME_SPEED ==0){
+                    superSpeed += 0.1f;
+                }
+            }
+
             ob.incrementY((speed * elapsedTime) + superSpeed);
         }
 
@@ -53,8 +61,7 @@ public class ObstacleManager {
                     obstacleHeight, color, xStart, obstacles.get(0).getRectangle().top -
                     obstacleHeight - obstacleGap, playerGap));
             obstacles.remove(obstacles.size() - 1);
-            score++;
-            System.out.println(score);
+            //score++;
 
         }
     }
@@ -82,7 +89,8 @@ public class ObstacleManager {
         int currY = -5 * Constants.SCREEN_HEIGHT / 4;
         while (currY < 0) {
             int xStart = (int) (Math.random() * Constants.SCREEN_WIDTH - playerGap);
-            obstacles.add(new Obstacle(obstacleHeight, color, xStart, currY, playerGap));
+            Obstacle currentObstacle = new Obstacle(obstacleHeight, color, xStart, currY, playerGap);
+            obstacles.add(currentObstacle);
             currY += obstacleHeight + obstacleGap;
         }
     }

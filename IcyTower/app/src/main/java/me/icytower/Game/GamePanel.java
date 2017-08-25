@@ -44,7 +44,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
                 Constants.LEVEL_WHOLEWIDTH,
                 Constants.LEVEL_HEIGHT,
                 Constants.LEVEL_OBSTACLETHICKNESS,
-                Color.BLACK);
+                Color.BLACK,
+                player);
 
         setFocusable(true);
     }
@@ -85,10 +86,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
                 if (!isGameOver && player.getRectangle().contains((int) event.getX(), (int) event.getY())) {
                     movingPlayer = true;
                 }
-                System.out.println("Current Time:"+System.currentTimeMillis());
-                System.out.println("IsGameOver"+isGameOver);
-                System.out.println("gameOverTime"+gameOverTime);
-                System.out.println("Difference" + (System.currentTimeMillis()-gameOverTime));
                 if (isGameOver && System.currentTimeMillis() - gameOverTime >= 2000) {
                     reset();
                     isGameOver = false;
@@ -116,7 +113,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
                 Constants.LEVEL_WHOLEWIDTH,
                 Constants.LEVEL_HEIGHT,
                 Constants.LEVEL_OBSTACLETHICKNESS,
-                Color.BLACK);
+                Color.BLACK,
+                player);
         movingPlayer = false;
     }
 
