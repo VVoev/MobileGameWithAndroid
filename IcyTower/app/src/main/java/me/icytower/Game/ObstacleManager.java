@@ -3,6 +3,7 @@ package me.icytower.Game;
 
 import android.app.FragmentManager;
 import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.provider.ContactsContract;
 
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ public class ObstacleManager {
     private int obstacleHeight;
     private int color;
 
+    //speed of dropping the obstacles above
+    private float superSpeed = 1;
 
     private long startTime;
 
@@ -28,26 +31,16 @@ public class ObstacleManager {
 
         startTime = System.currentTimeMillis();
         obstacles = new ArrayList<>();
-
         populateObstaces();
-
-    }
-
-    private void populateObstaces() {
-        int currY = -5 * Constants.SCREEN_HEIGHT / 4;
-        while (currY < 0) {
-            int xStart = (int) (Math.random() * Constants.SCREEN_WIDTH - playerGap);
-            obstacles.add(new Obstacle(obstacleHeight, color, xStart, currY, playerGap));
-            currY += obstacleHeight + obstacleGap;
-        }
     }
 
     public void update() {
         int elapsedTime = (int) (System.currentTimeMillis() - startTime);
         startTime = System.currentTimeMillis();
-        float speed = Constants.SCREEN_HEIGHT / 10000.0f;
+        float speed = (Constants.SCREEN_HEIGHT / 10000.0f);
         for (Obstacle ob : obstacles) {
-            ob.incrementY(speed * elapsedTime);
+            superSpeed +=0.0003f;
+            ob.incrementY((speed * elapsedTime)+superSpeed);
         }
 
         if (obstacles.get(obstacles.size() - 1).getRectangle().top >= Constants.SCREEN_HEIGHT) {
@@ -66,4 +59,24 @@ public class ObstacleManager {
             ob.draw(canvas);
         }
     }
+
+    public boolean playerCollide(RectPlayer player){
+        for (Obstacle ob : obstacles){
+            if(ob.isPlayerColiding(player)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void populateObstaces() {
+        int currY = -5 * Constants.SCREEN_HEIGHT / 4;
+        while (currY < 0) {
+            int xStart = (int) (Math.random() * Constants.SCREEN_WIDTH - playerGap);
+            obstacles.add(new Obstacle(obstacleHeight, color, xStart, currY, playerGap));
+            currY += obstacleHeight + obstacleGap;
+        }
+    }
+
+
 }

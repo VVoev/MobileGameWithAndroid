@@ -12,6 +12,19 @@ public class RectPlayer implements GameObject {
     private Rect rectangle;
     private int color;
 
+    /*
+    think about it
+    private boolean isGameOver;
+
+    public boolean GetIsGameOver(){
+        return this.isGameOver;
+    }
+
+    public void SetIsGameOver(boolean value){
+        this.isGameOver = value;
+    }
+    */
+
     public RectPlayer(Rect rectangle, int color){
         this.rectangle = rectangle;
         this.color = color;

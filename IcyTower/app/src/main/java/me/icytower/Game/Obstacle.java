@@ -4,6 +4,10 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import me.icytower.Game.Contracts.GameObject;
 
 public class Obstacle implements GameObject {
@@ -11,7 +15,8 @@ public class Obstacle implements GameObject {
     private int color;
     private Rect rectangle;
     private Rect rectangle2;
-
+    private long currentDate = System.currentTimeMillis();
+    private int speed = 1;
 
     public Obstacle(int rectHeight, int color, int startX, int startY, int playerGap) {
         this.color = color;
@@ -24,17 +29,6 @@ public class Obstacle implements GameObject {
         return rectangle;
     }
 
-    public boolean isPlayerColiding(RectPlayer player) {
-        if (rectangle.contains(player.getRectangle().left, player.getRectangle().top)
-                || rectangle.contains(player.getRectangle().right, player.getRectangle().top)
-                || rectangle.contains(player.getRectangle().left, player.getRectangle().bottom)
-                || rectangle.contains(player.getRectangle().right, player.getRectangle().bottom)) {
-            return true;
-        }
-
-        return false;
-    }
-
     @Override
     public void draw(Canvas canvas) {
         Paint paint = new Paint();
@@ -44,14 +38,23 @@ public class Obstacle implements GameObject {
     }
 
     public void incrementY(double y) {
-        rectangle.top += y;
-        rectangle.bottom += y;
-        rectangle2.top += y;
-        rectangle2.bottom += y;
+        rectangle.top += y*speed;
+        rectangle.bottom += y*speed;
+        rectangle2.top += y*speed;
+        rectangle2.bottom += y*speed;
     }
 
     @Override
     public void update() {
 
+    }
+
+    public boolean isPlayerColiding(RectPlayer player) {
+        return Rect.intersects(rectangle,player.getRectangle()) ||
+                Rect.intersects(rectangle2,player.getRectangle());
+    }
+
+    private long provideMeDate(){
+        return System.currentTimeMillis();
     }
 }

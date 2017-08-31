@@ -8,7 +8,11 @@ public class Constants {
 
 
     //Obstacle Manager Constants
-    public static int LEVEL_WHOLEWIDTH =500;
+    public static int LEVEL_WHOLEWIDTH =800;
     public static int LEVEL_HEIGHT =500;
-    public  static  int LEVEL_OBSTACLETHICKNESS=75;
+    public static int LEVEL_OBSTACLETHICKNESS=75;
+
+
+    //Game Constants
+    public static String GAME_OVER = "Game Over";
 }
