@@ -2,4 +2,5 @@
 <resources>
     <color name="colorPrimary">#00cbf9</color>
     <color name="menuPrimaryDark">#000000</color>
+    <color name="menuOtherColors">#e5eadf</color>
 </resources>

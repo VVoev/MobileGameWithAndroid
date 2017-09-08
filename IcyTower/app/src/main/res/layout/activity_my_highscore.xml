@@ -4,9 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/icytower2"
     tools:context="me.icytower.MyHighscore">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/menuOtherColors"
+        android:textSize="@dimen/button_margin"
         android:text="HighScora trqbva da e tuk"/>
 </android.support.constraint.ConstraintLayout>
