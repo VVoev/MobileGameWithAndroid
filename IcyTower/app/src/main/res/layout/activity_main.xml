@@ -40,7 +40,7 @@
             android:id="@+id/loadHighScore"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/button_margin"
             android:layout_weight="2"
             android:background="@drawable/roundshapebutton"
             android:onClick="loadHighScores"
@@ -61,11 +61,31 @@
             android:id="@+id/showInstructions"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/button_margin"
             android:layout_weight="2"
             android:background="@drawable/roundshapebutton"
             android:onClick="showInstructions"
             android:text="@string/instructions"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout3"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/yourData"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/button_margin"
+            android:layout_weight="2"
+            android:background="@drawable/roundshapebutton"
+            android:onClick="enterDetails"
+            android:text="@string/title_activity_your_details"
             android:textSize="20sp" />
     </LinearLayout>
 

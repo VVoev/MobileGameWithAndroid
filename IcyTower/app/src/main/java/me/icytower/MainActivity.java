@@ -35,4 +35,9 @@ public class MainActivity extends AppCompatActivity {
         Intent showInstructions = new Intent(this,Instructions.class);
         startActivity(showInstructions);
     }
+
+    public void enterDetails (View view){
+        Intent showInstructions = new Intent(this,YourDetails.class);
+        startActivity(showInstructions);
+    }
 }

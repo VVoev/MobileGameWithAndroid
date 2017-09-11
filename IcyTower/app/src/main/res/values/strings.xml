@@ -3,4 +3,5 @@
     <string name="highscore">HighScores</string>
     <string name="newgame">New Game</string>
     <string name="instructions">Instructions</string>
+    <string name="title_activity_your_details">Enter Your Details</string>
 </resources>

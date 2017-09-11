@@ -18,7 +18,11 @@
         </activity>
         <activity android:name=".MyHighscore" />
         <activity android:name=".NewGame" />
-        <activity android:name=".Instructions"></activity>
+        <activity android:name=".Instructions" />
+        <activity
+            android:name=".YourDetails"
+            android:label="@string/title_activity_your_details"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
