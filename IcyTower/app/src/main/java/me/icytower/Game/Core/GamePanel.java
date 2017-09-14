@@ -51,9 +51,10 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
                 player);
 
 
-        //need to import picture
+        /*need to import picture
         Resources res = getResources();
         Drawable drawable = res.getDrawable(R.drawable.icytower2);
+        */
 
         setFocusable(true);
     }

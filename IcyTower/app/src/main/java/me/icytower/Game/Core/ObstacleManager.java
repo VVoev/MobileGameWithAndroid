@@ -24,7 +24,7 @@ public class ObstacleManager implements GameObject {
 
     private long startTime;
 
-    public ObstacleManager(int playerGap, int obstacleGap, int obstacleHeight, int color,RectPlayer player) {
+    public ObstacleManager(int playerGap, int obstacleGap, int obstacleHeight, int color, RectPlayer player) {
         this.playerGap = playerGap;
         this.obstacleGap = obstacleGap;
         this.obstacleHeight = obstacleHeight;
@@ -41,9 +41,9 @@ public class ObstacleManager implements GameObject {
         startTime = System.currentTimeMillis();
         float speed = (Constants.SCREEN_HEIGHT / 10000.0f);
         for (Obstacle ob : obstacles) {
-            if(player.getRectangle().top > ob.getRectangle().top){
+            if (player.getRectangle().top > ob.getRectangle().top) {
                 score++;
-                if(score % Constants.GAME_SPEED ==0){
+                if (score % Constants.GAME_SPEED == 0) {
                     superSpeed += 0.1f;
                 }
             }
@@ -51,15 +51,14 @@ public class ObstacleManager implements GameObject {
             ob.incrementY((speed * elapsedTime) + superSpeed);
         }
 
+        //TODO refactor logic
         if (obstacles.get(obstacles.size() - 1).getRectangle().top >= Constants.SCREEN_HEIGHT) {
-            //TODO refactor logic
             int xStart = (int) (Math.random() * Constants.SCREEN_WIDTH - playerGap);
             obstacles.add(0, new Obstacle(
                     obstacleHeight, color, xStart, obstacles.get(0).getRectangle().top -
                     obstacleHeight - obstacleGap, playerGap));
             obstacles.remove(obstacles.size() - 1);
-            //score++;
-
+            //score++ can also be achieved here
         }
     }
 
@@ -70,7 +69,7 @@ public class ObstacleManager implements GameObject {
         Paint paint = new Paint();
         paint.setColor(Color.BLUE);
         paint.setTextSize(100);
-        canvas.drawText(""+score,50,50+paint.descent()-paint.ascent(),paint);
+        canvas.drawText("" + score, 50, 50 + paint.descent() - paint.ascent(), paint);
     }
 
     public boolean playerCollide(RectPlayer player) {
@@ -86,11 +85,9 @@ public class ObstacleManager implements GameObject {
         int currY = -5 * Constants.SCREEN_HEIGHT / 4;
         while (currY < 0) {
             int xStart = (int) (Math.random() * Constants.SCREEN_WIDTH - playerGap);
-            Obstacle currentObstacle = new Obstacle(obstacleHeight, color, xStart, currY, playerGap);
+            Obstacle currentObstacle = new Obstacle(obstacleHeight, color, xStart - 100, currY, playerGap);
             obstacles.add(currentObstacle);
             currY += obstacleHeight + obstacleGap;
         }
     }
-
-
 }

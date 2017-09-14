@@ -2,16 +2,14 @@ package me.icytower.Game.Core;
 
 public class Constants {
 
-    public  static  int SCREEN_WIDTH;
-    public  static  int SCREEN_HEIGHT;
-
-
+    public static int SCREEN_WIDTH;
+    public static int SCREEN_HEIGHT;
 
     //Obstacle Manager Constants
-    public static int LEVEL_WHOLEWIDTH =800;
-    public static int LEVEL_HEIGHT =500;
-    public static int LEVEL_OBSTACLETHICKNESS=75;
-
+    public static int LEVEL_WHOLEWIDTH = 300;
+    public static int LEVEL_HEIGHT = 500;
+    public static int LEVEL_OBSTACLETHICKNESS = 75;
+    public static int LEVEL_ADDITIONALGAP = 150;
 
     //Game Constants
     public static String GAME_OVER = "Game Over";
