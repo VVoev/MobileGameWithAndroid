@@ -20,35 +20,16 @@ import me.icytower.R;
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     private MainThread thread;
-    private Rect r = new Rect();
-
-
-    private RectPlayer player;
-    private Point playerPoint;
-    private ObstacleManager obstacleManager;
-
-    private Display display;
-
-    private boolean movingPlayer = false;
-    private boolean isGameOver = false;
-
-    private long gameOverTime;
+    private SceneManager manager;
 
     public GamePanel(Context context) {
         super(context);
         getHolder().addCallback(this);
 
         thread = new MainThread(getHolder(), this);
+        manager = new SceneManager();
 
-        player = new RectPlayer(new Rect(100, 100, 150, 150), Color.rgb(255, 0, 0));
-        playerPoint = new Point(Constants.SCREEN_WIDTH / 2, 3 * Constants.SCREEN_HEIGHT / 4);
-        player.update(playerPoint);
-        obstacleManager = new ObstacleManager(
-                Constants.LEVEL_WHOLEWIDTH,
-                Constants.LEVEL_HEIGHT,
-                Constants.LEVEL_OBSTACLETHICKNESS,
-                Color.BLACK,
-                player);
+
 
 
         /*need to import picture
@@ -89,84 +70,22 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                if (!isGameOver && player.getRectangle().contains((int) event.getX(), (int) event.getY())) {
-                    movingPlayer = true;
-                }
-                if (isGameOver && System.currentTimeMillis() - gameOverTime >= 2000) {
-                    reset();
-                    isGameOver = false;
-                }
-                break;
-
-            case MotionEvent.ACTION_MOVE:
-                if (!isGameOver && movingPlayer) {
-                    playerPoint.set((int) event.getX(), (int) event.getY());
-                    break;
-                }
-            case MotionEvent.ACTION_UP:
-                movingPlayer = false;
-                break;
-        }
-
+        manager.receiveTouch(event);
         return true;
         //return super.onTouchEvent(event);
     }
 
-    private void reset() {
-        playerPoint = new Point(Constants.SCREEN_WIDTH / 2, 3 * Constants.SCREEN_HEIGHT / 4);
-        player.update(playerPoint);
-        obstacleManager = new ObstacleManager(
-                Constants.LEVEL_WHOLEWIDTH,
-                Constants.LEVEL_HEIGHT,
-                Constants.LEVEL_OBSTACLETHICKNESS,
-                Color.BLACK,
-                player);
-        movingPlayer = false;
-    }
 
     public void update() {
-        if (!isGameOver) {
-            player.update(playerPoint);
-            obstacleManager.update();
-        }
-
-        if (obstacleManager.playerCollide(player) && !isGameOver) {
-            isGameOver = true;
-            gameOverTime = System.currentTimeMillis();
-        }
-
+        manager.update();
     }
 
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
-
-        canvas.drawColor(Color.GREEN);
-
-        player.draw(canvas);
-        obstacleManager.draw(canvas);
-
-        if (isGameOver) {
-            Paint paint = new Paint();
-            paint.setTextSize(100);
-            paint.setColor(Color.BLUE);
-            drawGameOver(canvas, paint, Constants.GAME_OVER);
-        }
+        manager.draw(canvas);
     }
 
-    private void drawGameOver(Canvas canvas, Paint paint, String text) {
-        paint.setTextAlign(Paint.Align.LEFT);
-        paint.setColor(Color.rgb(6, 213, 249));
-        canvas.getClipBounds(r);
-        int cHeight = r.height();
-        int cWidth = r.width();
-        paint.getTextBounds(text, 0, text.length(), r);
-        float x = cWidth / 2f - r.width() / 2f - r.left;
-        float y = cHeight / 2f - r.height() / 2f - r.bottom;
-        canvas.drawText(text, x, y, paint);
-    }
+
 
 }
