@@ -23,20 +23,12 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     private SceneManager manager;
 
     public GamePanel(Context context) {
+        //don`t touch the parameters or it will explode
         super(context);
         getHolder().addCallback(this);
-
+        Constants.CONTEXT = context;
         thread = new MainThread(getHolder(), this);
         manager = new SceneManager();
-
-
-
-
-        /*need to import picture
-        Resources res = getResources();
-        Drawable drawable = res.getDrawable(R.drawable.icytower2);
-        */
-
         setFocusable(true);
     }
 
@@ -72,9 +64,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     public boolean onTouchEvent(MotionEvent event) {
         manager.receiveTouch(event);
         return true;
-        //return super.onTouchEvent(event);
     }
-
 
     public void update() {
         manager.update();
@@ -85,7 +75,4 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
         super.draw(canvas);
         manager.draw(canvas);
     }
-
-
-
 }

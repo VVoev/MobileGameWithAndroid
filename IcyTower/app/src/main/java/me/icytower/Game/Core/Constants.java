@@ -1,5 +1,7 @@
 package me.icytower.Game.Core;
 
+import android.content.Context;
+
 public class Constants {
 
     public static int SCREEN_WIDTH;
@@ -14,4 +16,7 @@ public class Constants {
     //Game Constants
     public static String GAME_OVER = "Game Over";
     public static int GAME_SPEED = 10;
+
+    //Animation
+    public static Context CONTEXT;
 }

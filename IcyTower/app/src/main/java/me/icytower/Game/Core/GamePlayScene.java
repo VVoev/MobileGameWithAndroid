@@ -28,8 +28,13 @@ public class GamePlayScene implements Scene {
 
     private long gameOverTime;
 
+    /*best params
+
+     100 100 200 200        debelina na kvadrata 3ti i 4ti parametur
+     */
+
     public  GamePlayScene(){
-        player = new RectPlayer(new Rect(100, 100, 150, 150), Color.rgb(255, 0, 0));
+        player = new RectPlayer(new Rect(100, 100, 300, 200), Color.rgb(255, 0, 0));
         playerPoint = new Point(Constants.SCREEN_WIDTH / 2, 3 * Constants.SCREEN_HEIGHT / 4);
         player.update(playerPoint);
         obstacleManager = new ObstacleManager(
@@ -70,7 +75,7 @@ public class GamePlayScene implements Scene {
     @Override
     public void draw(Canvas canvas) {
 
-        canvas.drawColor(Color.GREEN);
+        canvas.drawColor(Color.WHITE);
 
         player.draw(canvas);
         obstacleManager.draw(canvas);
