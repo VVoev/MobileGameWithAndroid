@@ -14,9 +14,8 @@ public class AnimationManager {
     public void playAnimation(int index) {
         for (int i = 0; i < animations.length; i++) {
             if (i == index) {
-                if (!animations[index].isPlaying()) {
+                if (!animations[index].isPlaying())
                     animations[i].play();
-                }
             } else {
                 animations[i].stop();
             }
@@ -24,15 +23,17 @@ public class AnimationManager {
         animationIndex = index;
     }
 
-    public void update() {
-        if (animations[animationIndex].isPlaying()) {
-            animations[animationIndex].update();
-        }
-    }
+
 
     public void draw(Canvas canvas, Rect rect) {
         if (animations[animationIndex].isPlaying()) {
             animations[animationIndex].draw(canvas, rect);
+        }
+    }
+
+    public void update() {
+        if (animations[animationIndex].isPlaying()) {
+            animations[animationIndex].update();
         }
     }
 }

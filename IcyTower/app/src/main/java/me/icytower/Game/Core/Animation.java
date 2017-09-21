@@ -5,6 +5,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
+import static android.support.design.R.id.image;
+
 
 public class Animation {
     private Bitmap[] frames;
@@ -50,6 +52,8 @@ public class Animation {
 
     private void scaleRect(Rect rect) {
         float whRatio = (float)(frames[frameIndex].getWidth()) / frames[frameIndex].getHeight();
+        System.out.println(whRatio);
+
         if (rect.width() > rect.height()) {
             rect.left = rect.right - (int) (rect.height() * whRatio);
         } else {
@@ -64,7 +68,7 @@ public class Animation {
 
         if (System.currentTimeMillis() - lastFrame > frameTime * 1000) {
             frameIndex++;
-            frameIndex = frameIndex > frames.length ? 0 : frameIndex;
+            frameIndex = frameIndex >= frames.length ? 0 : frameIndex;
             lastFrame = setLastFrame();
         }
     }
