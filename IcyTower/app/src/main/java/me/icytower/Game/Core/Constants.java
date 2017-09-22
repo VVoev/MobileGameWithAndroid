@@ -17,6 +17,8 @@ public class Constants {
     public static String GAME_OVER = "Game Over";
     public static int GAME_SPEED = 10;
     public static long INIT_TIME;
+    //Gyroscope
+    public static float SLOW_THE_TIME = 1000f;
 
     //Animation
     public static Context CONTEXT;

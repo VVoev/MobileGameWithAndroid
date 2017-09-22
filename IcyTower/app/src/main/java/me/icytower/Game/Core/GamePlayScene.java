@@ -79,8 +79,8 @@ public class GamePlayScene implements Scene {
                 float pitch = orientationData.getOrientation()[1] - orientationData.getStartOrientation()[1];
                 float roll = orientationData.getOrientation()[2] - orientationData.getStartOrientation()[2];
 
-                float xSpeed = 2 * roll * Constants.SCREEN_WIDTH / 1000f;
-                float ySpeed = pitch * Constants.SCREEN_HEIGHT / 1000f;
+                float xSpeed = 2 * roll * Constants.SCREEN_WIDTH / Constants.SLOW_THE_TIME;
+                float ySpeed = pitch * Constants.SCREEN_HEIGHT / Constants.SLOW_THE_TIME;
 
                 //check for possible bottlenecks (int)
                 playerPoint.x += (int)(Math.abs(xSpeed * elapsedTime) > 5 ? xSpeed * elapsedTime : 0);

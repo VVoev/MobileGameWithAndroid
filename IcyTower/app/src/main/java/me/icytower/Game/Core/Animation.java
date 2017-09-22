@@ -15,6 +15,12 @@ public class Animation {
     private float frameTime;
     private long lastFrame;
 
+    private Boolean isPlaying = false;
+
+    private long setLastFrame() {
+        return System.currentTimeMillis();
+    }
+
     public Animation(Bitmap[] frames, float animTimes) {
         this.frames = frames;
         this.frameIndex = 0;
@@ -22,21 +28,18 @@ public class Animation {
         this.lastFrame = setLastFrame();
     }
 
-    private Boolean isPlaying = false;
-
     public Boolean isPlaying() {
-        return isPlaying;
+        return this.isPlaying;
     }
 
-
     public void play() {
-        isPlaying = true;
-        frameIndex = 0;
-        lastFrame = setLastFrame();
+        this.isPlaying = true;
+        this.frameIndex = 0;
+        this.lastFrame = setLastFrame();
     }
 
     public void stop() {
-        isPlaying = false;
+        this.isPlaying = false;
     }
 
     public void draw(Canvas canvas, Rect destination) {
@@ -72,9 +75,4 @@ public class Animation {
             lastFrame = setLastFrame();
         }
     }
-
-    private long setLastFrame() {
-        return System.currentTimeMillis();
-    }
-
 }
