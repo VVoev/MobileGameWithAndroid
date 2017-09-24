@@ -29,7 +29,7 @@ public class RectPlayer implements GameObject {
 
     }
 
-    public void Update(Point point){
+    public void update(Point point){
         rectangle.set(
                 point.x-rectangle.width()/2,
                 point.y-rectangle.height()/2,

@@ -86,7 +86,8 @@ public class MainThread extends Thread {
                 averageFPS = 1000 /operation;
                 frameCount = 0;
                 totalTime = 0;
-                System.out.println(averageFPS);
+                //debugging
+                //System.out.println(averageFPS);
             }
         }
     }
