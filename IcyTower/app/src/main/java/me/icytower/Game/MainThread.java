@@ -27,13 +27,13 @@ public class MainThread extends Thread {
     }
 
     //Override default sleep since its deprecated in thread
-    public void wait(int time){
-        try {
-            Thread.sleep(time);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void wait(int time){
+//        try {
+//            Thread.sleep(time);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     public void run(){
@@ -72,7 +72,7 @@ public class MainThread extends Thread {
             waitTime = targetTime - timeMiliseconds;
             try {
                 if(waitTime>0){
-                    this.wait(waitTime);
+                    this.sleep(waitTime);
                 }
             }
             catch (Exception e){
@@ -86,7 +86,7 @@ public class MainThread extends Thread {
                 averageFPS = 1000 /operation;
                 frameCount = 0;
                 totalTime = 0;
-                System.out.print(averageFPS);
+                System.out.println(averageFPS);
             }
         }
     }
