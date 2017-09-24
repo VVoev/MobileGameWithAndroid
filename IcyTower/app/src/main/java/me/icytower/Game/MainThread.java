@@ -26,14 +26,15 @@ public class MainThread extends Thread {
         this.gamePannel = gamePanel;
     }
 
+    //TODO LEAVE IT FOR NOW
     //Override default sleep since its deprecated in thread
-//    public void wait(int time){
-//        try {
-//            Thread.sleep(time);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    //    public void wait(int time){
+    //        try {
+    //            Thread.sleep(time);
+    //        } catch (InterruptedException e) {
+    //            e.printStackTrace();
+    //        }
+    //    }
 
     @Override
     public void run(){
