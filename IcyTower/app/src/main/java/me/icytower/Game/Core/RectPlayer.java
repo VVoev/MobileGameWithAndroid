@@ -19,6 +19,9 @@ public class RectPlayer implements GameObject {
     private Animation idle;
     private Animation walkLeft;
     private Animation walkRight;
+
+    private Animation coinIdle;
+
     private AnimationManager animManager;
 
     public RectPlayer(Rect rectangle, int color) {
@@ -27,21 +30,27 @@ public class RectPlayer implements GameObject {
 
 
         BitmapFactory bf = new BitmapFactory();
-        Bitmap idleImage = bf.decodeResource(Constants.CONTEXT.getResources(),R.drawable.f1);
+
+        Bitmap idleImage = bf.decodeResource(Constants.CONTEXT.getResources(), R.drawable.f1);
         Bitmap walk1 = bf.decodeResource(Constants.CONTEXT.getResources(), R.drawable.f2);
         Bitmap walk2 = bf.decodeResource(Constants.CONTEXT.getResources(), R.drawable.f3);
 
-        idle = new Animation(new Bitmap[]{idleImage},2);
-        walkRight = new Animation(new Bitmap[]{walk1,walk2},0.5f);
+        Bitmap coin = bf.decodeResource(Constants.CONTEXT.getResources(), R.drawable.coin);
+
+        idle = new Animation(new Bitmap[]{idleImage}, 2);
+        walkRight = new Animation(new Bitmap[]{walk1, walk2}, 0.5f);
+        coinIdle = new Animation(new Bitmap[]{coin}, 0.5f);
 
         Matrix m = new Matrix();
-        m.preScale(-1,1);
-        walk1 = Bitmap.createBitmap(walk1,0,0,walk1.getWidth(),walk1.getHeight(),m,false);
-        walk2 = Bitmap.createBitmap(walk2,0,0,walk2.getWidth(),walk2.getHeight(),m,false);
+        m.preScale(-1, 1);
+        walk1 = Bitmap.createBitmap(walk1, 0, 0, walk1.getWidth(), walk1.getHeight(), m, false);
+        walk2 = Bitmap.createBitmap(walk2, 0, 0, walk2.getWidth(), walk2.getHeight(), m, false);
 
-        walkLeft = new Animation(new Bitmap[]{walk1,walk2},0.5f);
+        coin = Bitmap.createBitmap(coin, 0, 0, coin.getWidth(), coin.getHeight(), m, false);
 
-        animManager = new AnimationManager(new Animation[]{idle,walkLeft,walkRight});
+        walkLeft = new Animation(new Bitmap[]{walk1, walk2}, 0.5f);
+        coinIdle = new Animation(new Bitmap[]{coin}, 0.5f);
+        animManager = new AnimationManager(new Animation[]{idle, walkLeft, walkRight});
         int test = 5;
 
     }
@@ -53,7 +62,7 @@ public class RectPlayer implements GameObject {
         //paint.setColor(color);
         //canvas.drawRect(rectangle, paint);
         //production mode 2
-        animManager.draw(canvas,rectangle);
+        animManager.draw(canvas, rectangle);
     }
 
     public Rect getRectangle() {
@@ -75,11 +84,10 @@ public class RectPlayer implements GameObject {
                 point.x + rectangle.width() / 2,
                 point.y + rectangle.height() / 2);
 
-        int state = 0 ;
-        if(rectangle.left  - oldLeft > 5){
+        int state = 0;
+        if (rectangle.left - oldLeft > 5) {
             state = 1;
-        }
-        else if(rectangle.left - oldLeft < -5){
+        } else if (rectangle.left - oldLeft < -5) {
             state = 2;
         }
 
