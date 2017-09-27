@@ -13,11 +13,19 @@ public class Coin implements GameObject{
     private Rect rectangle;
     private int color;
     private RectPlayer player;
+    private ObstacleManager manager;
 
-    public Coin(int rectHeight,int startX,int startY,int color,RectPlayer player){
-        this.color = color;     //right   //down  //right
-        this.rectangle = new Rect(0,startY,startX,startY+rectHeight);
+    public Coin(int rectHeight,int startX,int startY,int color,RectPlayer player,ObstacleManager manager){
+        this.color = color;
+
+        //fixed starting position
+        //this.rectangle = new Rect(0,startY,startX,startY+rectHeight);
+
+        //random position
+        generateCoinRandomPosition();
+
         this.player = player;
+        this.manager = manager;
     }
 
     @Override
@@ -29,6 +37,11 @@ public class Coin implements GameObject{
         }
         else{
             generateCoinRandomPosition();
+            int currentScore = manager.getScore();
+            System.out.println(currentScore);
+            int newScore = currentScore+Constants.COIN_PTS;
+            System.out.println(newScore);
+            manager.setScore(newScore);
         }
     }
 

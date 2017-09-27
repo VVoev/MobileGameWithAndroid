@@ -23,4 +23,8 @@ public class Constants {
 
     //Animation
     public static Context CONTEXT;
+
+    //Coin bonus pts
+    public static int COIN_PTS = 500;
+    public static int START_COINTS = 0;
 }

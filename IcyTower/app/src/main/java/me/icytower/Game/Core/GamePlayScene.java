@@ -14,7 +14,6 @@ import me.icytower.Game.Contracts.Scene;
 public class GamePlayScene implements Scene {
 
     private SceneManager manager;
-
     private Rect r = new Rect();
 
 
@@ -41,7 +40,6 @@ public class GamePlayScene implements Scene {
     public GamePlayScene() {
         player = new RectPlayer(new Rect(100, 100, 300, 200), Color.rgb(255, 0, 0));
         playerPoint = new Point(Constants.SCREEN_WIDTH / 2, 3 * Constants.SCREEN_HEIGHT / 4);
-        coin = new Coin(50,50,150,Color.rgb(255,0,0),player);
         player.update(playerPoint);
         obstacleManager = new ObstacleManager(
                 Constants.LEVEL_WHOLEWIDTH,
@@ -49,6 +47,8 @@ public class GamePlayScene implements Scene {
                 Constants.LEVEL_OBSTACLETHICKNESS,
                 Color.BLACK,
                 player);
+        coin = new Coin(50,50,150,Color.rgb(255,0,0),player,obstacleManager);
+
 
         orientationData = new OrientationData();
         orientationData.register();
@@ -81,6 +81,7 @@ public class GamePlayScene implements Scene {
                 Constants.LEVEL_OBSTACLETHICKNESS,
                 Color.BLACK,
                 player);
+        coin = new Coin(50,50,150,Color.rgb(255,0,0),player,obstacleManager);
         movingPlayer = false;
     }
 

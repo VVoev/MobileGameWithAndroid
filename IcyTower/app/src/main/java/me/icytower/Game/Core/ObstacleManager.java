@@ -16,10 +16,10 @@ public class ObstacleManager implements GameObject {
     private int obstacleGap;
     private int obstacleHeight;
     private int color;
-    private int score = 0;
     private RectPlayer player;
 
-    //speed of dropping the obstacles above
+    //speed of dropping the obstacles
+    private int score = 0;
     private float superSpeed = 1;
 
     private long startTime;
@@ -34,6 +34,13 @@ public class ObstacleManager implements GameObject {
         startTime = System.currentTimeMillis();
         obstacles = new ArrayList<>();
         populateObstaces();
+        System.out.println("Ot obstacle managera");
+    }
+    public int getScore(){
+        return this.score;
+    }
+    public void setScore(int score){
+        this.score = score;
     }
 
     public void update() {
