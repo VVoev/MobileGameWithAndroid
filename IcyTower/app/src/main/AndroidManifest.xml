@@ -24,7 +24,8 @@
         <activity
             android:name=".Game.Activities.YourDetails"
             android:label="@string/title_activity_your_details"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Game.Activities.Result"></activity>
     </application>
 
 </manifest>

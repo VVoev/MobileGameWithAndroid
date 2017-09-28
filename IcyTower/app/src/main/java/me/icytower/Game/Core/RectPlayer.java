@@ -51,8 +51,6 @@ public class RectPlayer implements GameObject {
         walkLeft = new Animation(new Bitmap[]{walk1, walk2}, 0.5f);
         coinIdle = new Animation(new Bitmap[]{coin}, 0.5f);
         animManager = new AnimationManager(new Animation[]{idle, walkLeft, walkRight});
-        int test = 5;
-
     }
 
     @Override
