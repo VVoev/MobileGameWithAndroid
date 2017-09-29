@@ -35,10 +35,16 @@ public class MainActivity extends AppCompatActivity {
     public void showInstructions (View view){
         Intent showInstructions = new Intent(this,Instructions.class);
         startActivity(showInstructions);
+        
     }
 
     public void enterDetails (View view){
         Intent showInstructions = new Intent(this,YourDetails.class);
         startActivity(showInstructions);
+    }
+
+    public void ResultView(View view){
+        Intent result = new Intent(this,Result.class);
+        startActivity(result);
     }
 }

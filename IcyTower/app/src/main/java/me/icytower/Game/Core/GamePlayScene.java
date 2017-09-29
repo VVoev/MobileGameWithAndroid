@@ -1,5 +1,7 @@
 package me.icytower.Game.Core;
 
+
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -8,8 +10,12 @@ import android.graphics.Rect;
 import android.provider.Settings;
 import android.view.Display;
 import android.view.MotionEvent;
+import android.widget.Toast;
 
+import me.icytower.Game.Activities.Result;
 import me.icytower.Game.Contracts.Scene;
+
+
 
 public class GamePlayScene implements Scene {
 
@@ -133,6 +139,7 @@ public class GamePlayScene implements Scene {
             Paint paint = new Paint();
             paint.setTextSize(100);
             paint.setColor(Color.BLUE);
+            //TODO implement fucking intent getApplicationContext() which for some fuckin reason is not working
             drawGameOver(canvas, paint, Constants.GAME_OVER);
         }
     }

@@ -1,5 +1,6 @@
 package me.icytower.Game.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -15,5 +16,8 @@ public class Result extends AppCompatActivity {
 
         TextView scoreLabel = (TextView)findViewById(R.id.scoreLabel);
         TextView highScoreLabel = (TextView)findViewById(R.id.highScoreLabel);
+
+        Intent intent = getIntent();
+
     }
 }
