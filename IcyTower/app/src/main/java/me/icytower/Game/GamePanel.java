@@ -1,10 +1,13 @@
 package me.icytower.Game;
 
 
+import android.bluetooth.BluetoothClass;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Rect;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.graphics.Point;
 import android.view.SurfaceHolder;
@@ -17,14 +20,18 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     private RectPlayer player;
     private Point playerPoint;
 
+    private Display display;
+
     public GamePanel(Context context) {
         super(context);
         getHolder().addCallback(this);
 
         thread = new MainThread(getHolder(), this);
 
+
         player = new RectPlayer(new Rect(100,100,150,150),Color.rgb(255,0,0));
-        playerPoint = new Point(150,150);
+        playerPoint = new Point(800,1800);
+
 
         setFocusable(true);
     }

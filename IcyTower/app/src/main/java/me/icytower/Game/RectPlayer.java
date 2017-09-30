@@ -23,6 +23,10 @@ public class RectPlayer implements GameObject {
         canvas.drawRect(rectangle,paint);
     }
 
+    public Rect getRectangle(){
+        return  rectangle;
+    }
+
     @Override
     public void update() {
 
