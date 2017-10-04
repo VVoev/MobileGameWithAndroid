@@ -52,7 +52,7 @@ public class Animation {
 
     private void scaleRect(Rect rect) {
         float whRatio = (float)(frames[frameIndex].getWidth()) / frames[frameIndex].getHeight();
-        System.out.println(whRatio);
+        //System.out.println(whRatio);
 
         if (rect.width() > rect.height()) {
             rect.left = rect.right - (int) (rect.height() * whRatio);

@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.provider.Settings;
 import android.view.Display;
 import android.view.MotionEvent;
 
@@ -28,12 +29,14 @@ public class GamePlayScene implements Scene {
 
     private long gameOverTime;
 
-    /*best params
+    private OrientationData orientationData;
+    private long frameTime;
 
+    /*best params
      100 100 200 200        debelina na kvadrata 3ti i 4ti parametur
      */
 
-    public  GamePlayScene(){
+    public GamePlayScene() {
         player = new RectPlayer(new Rect(100, 100, 300, 200), Color.rgb(255, 0, 0));
         playerPoint = new Point(Constants.SCREEN_WIDTH / 2, 3 * Constants.SCREEN_HEIGHT / 4);
         player.update(playerPoint);
@@ -43,6 +46,10 @@ public class GamePlayScene implements Scene {
                 Constants.LEVEL_OBSTACLETHICKNESS,
                 Color.BLACK,
                 player);
+
+        orientationData = new OrientationData();
+        orientationData.register();
+        frameTime = System.currentTimeMillis();
     }
 
     private void reset() {
@@ -58,10 +65,30 @@ public class GamePlayScene implements Scene {
     }
 
 
-
     @Override
     public void update() {
         if (!isGameOver) {
+            if (frameTime < Constants.INIT_TIME) {
+                frameTime = Constants.INIT_TIME;
+            }
+
+            int elapsedTime = (int) (System.currentTimeMillis() - frameTime);
+            frameTime = System.currentTimeMillis();
+
+            if (orientationData.getOrientation() != null && orientationData.getOrientation() != null) {
+                float pitch = orientationData.getOrientation()[1] - orientationData.getStartOrientation()[1];
+                float roll = orientationData.getOrientation()[2] - orientationData.getStartOrientation()[2];
+
+                float xSpeed = 2 * roll * Constants.SCREEN_WIDTH / 1000f;
+                float ySpeed = pitch * Constants.SCREEN_HEIGHT / 1000f;
+
+                //check for possible bottlenecks (int)
+                playerPoint.x += (int)(Math.abs(xSpeed * elapsedTime) > 5 ? xSpeed * elapsedTime : 0);
+                playerPoint.y -= (int)(Math.abs(ySpeed * elapsedTime) > 5 ? ySpeed * elapsedTime : 0);
+            }
+
+            checkForOffScreen(playerPoint);
+
             player.update(playerPoint);
             obstacleManager.update();
         }
@@ -69,6 +96,22 @@ public class GamePlayScene implements Scene {
         if (obstacleManager.playerCollide(player) && !isGameOver) {
             isGameOver = true;
             gameOverTime = System.currentTimeMillis();
+        }
+    }
+
+    private void checkForOffScreen(Point playerPoint) {
+        if(playerPoint.x < 0){
+            playerPoint.x = 0;
+        }
+        else  if(playerPoint.x > Constants.SCREEN_WIDTH){
+            playerPoint.x = Constants.SCREEN_WIDTH;
+        }
+
+        if(playerPoint.y < 0){
+            playerPoint.y = 0;
+        }
+        else if(playerPoint.y > Constants.SCREEN_HEIGHT){
+            playerPoint.y = Constants.SCREEN_HEIGHT;
         }
     }
 
@@ -103,6 +146,7 @@ public class GamePlayScene implements Scene {
                 if (isGameOver && System.currentTimeMillis() - gameOverTime >= 2000) {
                     reset();
                     isGameOver = false;
+                    orientationData.newGame();
                 }
                 break;
 

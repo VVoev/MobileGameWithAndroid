@@ -37,6 +37,10 @@ public class ObstacleManager implements GameObject {
     }
 
     public void update() {
+        if (startTime < Constants.INIT_TIME) {
+            startTime = Constants.INIT_TIME;
+        }
+
         int elapsedTime = (int) (System.currentTimeMillis() - startTime);
         startTime = System.currentTimeMillis();
         float speed = (Constants.SCREEN_HEIGHT / 10000.0f);

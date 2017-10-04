@@ -16,6 +16,7 @@ public class Constants {
     //Game Constants
     public static String GAME_OVER = "Game Over";
     public static int GAME_SPEED = 10;
+    public static long INIT_TIME;
 
     //Animation
     public static Context CONTEXT;
