@@ -1,4 +1,4 @@
-package me.icytower.Game.Activities;
+package me.icytower.UltimateCop.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,9 +8,9 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import me.icytower.Game.Core.Constants;
-import me.icytower.Game.Db.DbManager;
-import me.icytower.Game.Db.Scores;
+import me.icytower.UltimateCop.Core.Constants;
+import me.icytower.UltimateCop.Db.DbManager;
+import me.icytower.UltimateCop.Db.Scores;
 import me.icytower.R;
 
 public class MyHighscore extends AppCompatActivity {
@@ -56,13 +56,15 @@ public class MyHighscore extends AppCompatActivity {
     public void addButtonClicked(View v){
         Scores score = new Scores(userText.getText().toString(),0);
         dbManager.addNewScore(score);;
-        printDatabase();
+        userText.setText("");
+        giveMeTopTenPlayers();
     }
 
     public void deleteButtonClicked(View v){
         String name = userText.getText().toString();
         dbManager.deleteScore(name);
-        printDatabase();
+        userText.setText("");
+        giveMeTopTenPlayers();
     }
 
     private void printDatabase() {

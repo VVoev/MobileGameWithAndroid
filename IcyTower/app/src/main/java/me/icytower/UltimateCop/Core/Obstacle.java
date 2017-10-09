@@ -1,10 +1,10 @@
-package me.icytower.Game.Core;
+package me.icytower.UltimateCop.Core;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
-import me.icytower.Game.Contracts.GameObject;
+import me.icytower.UltimateCop.Contracts.GameObject;
 
 public class Obstacle implements GameObject {
 

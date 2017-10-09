@@ -1,11 +1,11 @@
-package me.icytower.Game.Core;
+package me.icytower.UltimateCop.Core;
 
 import android.graphics.Canvas;
 import android.view.MotionEvent;
 
 import java.util.ArrayList;
 
-import me.icytower.Game.Contracts.Scene;
+import me.icytower.UltimateCop.Contracts.Scene;
 
 public class SceneManager {
 

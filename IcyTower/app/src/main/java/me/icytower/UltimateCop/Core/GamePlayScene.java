@@ -1,4 +1,4 @@
-package me.icytower.Game.Core;
+package me.icytower.UltimateCop.Core;
 
 
 import android.content.Intent;
@@ -12,10 +12,9 @@ import android.graphics.Rect;
 import android.view.Display;
 import android.view.MotionEvent;
 
-import me.icytower.Game.Activities.Result;
-import me.icytower.Game.Contracts.Scene;
-import me.icytower.Game.Core.Sound.SoundManager;
-import me.icytower.Game.Db.DbManager;
+import me.icytower.UltimateCop.Activities.Result;
+import me.icytower.UltimateCop.Contracts.Scene;
+import me.icytower.UltimateCop.Core.Sound.SoundManager;
 import me.icytower.R;
 
 

@@ -1,4 +1,4 @@
-package me.icytower.Game.Core;
+package me.icytower.UltimateCop.Core;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -6,8 +6,8 @@ import android.graphics.Rect;
 
 import java.util.Random;
 
-import me.icytower.Game.Contracts.GameObject;
-import me.icytower.Game.Core.Sound.SoundManager;
+import me.icytower.UltimateCop.Contracts.GameObject;
+import me.icytower.UltimateCop.Core.Sound.SoundManager;
 
 public class Coin implements GameObject {
     private Rect rectangle;

@@ -5,7 +5,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/icytower2"
-    tools:context="me.icytower.Game.Activities.Instructions">
+    tools:context="me.icytower.UltimateCop.Activities.Instructions">
     <Button
         android:id="@+id/showInstructionsButton"
         android:layout_width="match_parent"

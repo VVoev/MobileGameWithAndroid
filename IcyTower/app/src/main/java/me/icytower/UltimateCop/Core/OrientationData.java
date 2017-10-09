@@ -1,4 +1,4 @@
-package me.icytower.Game.Core;
+package me.icytower.UltimateCop.Core;
 
 import android.content.Context;
 import android.hardware.Sensor;

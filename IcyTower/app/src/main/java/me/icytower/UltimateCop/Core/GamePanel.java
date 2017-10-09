@@ -1,21 +1,13 @@
-package me.icytower.Game.Core;
+package me.icytower.UltimateCop.Core;
 
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.view.Display;
 import android.view.MotionEvent;
-import android.graphics.Point;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-import me.icytower.Game.Db.DbManager;
-import me.icytower.R;
+import me.icytower.UltimateCop.Db.DbManager;
 
 
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
