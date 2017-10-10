@@ -1,4 +1,4 @@
-package me.icytower.Game.Db;
+package me.icytower.UltimateCop.Db;
 
 public class Scores {
 

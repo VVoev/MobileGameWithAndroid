@@ -1,11 +1,9 @@
-package me.icytower.Game.Core;
+package me.icytower.UltimateCop.Core;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-
-import static android.support.design.R.id.image;
 
 
 public class Animation {

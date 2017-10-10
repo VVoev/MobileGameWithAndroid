@@ -1,14 +1,13 @@
-package me.icytower.Game.Core;
+package me.icytower.UltimateCop.Core;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
-import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
 
-import me.icytower.Game.Contracts.GameObject;
+import me.icytower.UltimateCop.Contracts.GameObject;
 import me.icytower.R;
 
 public class RectPlayer implements GameObject {

@@ -1,4 +1,4 @@
-package me.icytower.Game.Activities;
+package me.icytower.UltimateCop.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 
-import me.icytower.Game.Core.Constants;
-import me.icytower.Game.Db.DbManager;
+import me.icytower.UltimateCop.Core.Constants;
+import me.icytower.UltimateCop.Db.DbManager;
 import me.icytower.R;
 
 public class MainActivity extends AppCompatActivity {

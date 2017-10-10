@@ -1,4 +1,4 @@
-package me.icytower.Game.Activities;
+package me.icytower.UltimateCop.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,12 +6,11 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import me.icytower.Game.Core.Constants;
-import me.icytower.Game.Db.DbManager;
-import me.icytower.Game.Db.Scores;
+import me.icytower.UltimateCop.Core.Constants;
+import me.icytower.UltimateCop.Db.DbManager;
+import me.icytower.UltimateCop.Db.Scores;
 import me.icytower.R;
 
 public class Result extends AppCompatActivity {

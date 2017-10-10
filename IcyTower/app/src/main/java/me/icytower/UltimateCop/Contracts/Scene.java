@@ -1,4 +1,4 @@
-package me.icytower.Game.Contracts;
+package me.icytower.UltimateCop.Contracts;
 
 
 import android.graphics.Canvas;

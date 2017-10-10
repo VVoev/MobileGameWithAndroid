@@ -1,4 +1,4 @@
-package me.icytower.Game.Core.Sound;
+package me.icytower.UltimateCop.Core.Sound;
 
 import android.content.Context;
 import android.media.AudioManager;

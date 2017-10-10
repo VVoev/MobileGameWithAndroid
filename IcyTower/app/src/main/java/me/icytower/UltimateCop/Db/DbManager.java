@@ -1,4 +1,4 @@
-package me.icytower.Game.Db;
+package me.icytower.UltimateCop.Db;
 
 import android.content.ContentValues;
 import android.content.Context;

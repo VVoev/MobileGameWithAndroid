@@ -1,13 +1,11 @@
-package me.icytower.Game.Activities;
+package me.icytower.UltimateCop.Activities;
 
-import android.support.annotation.DrawableRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import me.icytower.R;
 

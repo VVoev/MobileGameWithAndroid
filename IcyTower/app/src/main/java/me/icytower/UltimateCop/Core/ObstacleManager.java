@@ -1,4 +1,4 @@
-package me.icytower.Game.Core;
+package me.icytower.UltimateCop.Core;
 
 
 import android.graphics.Canvas;
@@ -7,7 +7,7 @@ import android.graphics.Paint;
 
 import java.util.ArrayList;
 
-import me.icytower.Game.Contracts.GameObject;
+import me.icytower.UltimateCop.Contracts.GameObject;
 
 public class ObstacleManager implements GameObject {
 
