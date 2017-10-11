@@ -25,9 +25,11 @@
             android:name=".UltimateCop.Activities.YourDetails"
             android:label="@string/title_activity_your_details"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".UltimateCop.Activities.Result"></activity>
         <activity
-            android:name=".UltimateCop.Activities.Result">
-        </activity>
+            android:name=".UltimateCop.Activities.DifficultyOption"
+            android:label="@string/title_activity_difficulty_option"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

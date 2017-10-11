@@ -4,6 +4,8 @@ import android.content.Context;
 
 public class Constants {
 
+    public static String DIFICULTY_LEVEL;
+
     public static int SCREEN_WIDTH;
     public static int SCREEN_HEIGHT;
 

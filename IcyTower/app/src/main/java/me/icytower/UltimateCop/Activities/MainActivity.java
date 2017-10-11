@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initializeNewGame (View view) {
-        Intent initializeNewGame = new Intent(this, NewGame.class);
+        Intent initializeNewGame = new Intent(this, DifficultyOption.class);
         startActivity(initializeNewGame);
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -45,8 +45,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(showInstructions);
     }
 
-    public void ResultView(View view){
+    public void resultView(View view){
         Intent result = new Intent(this,Result.class);
+        startActivity(result);
+    }
+
+    public void difficultyOptions(View view){
+        Intent result = new Intent(this,DifficultyOption.class);
         startActivity(result);
     }
 

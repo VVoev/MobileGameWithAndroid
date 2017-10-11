@@ -12,5 +12,9 @@
     <string name="backToHome">Back to Main</string>
     <string name="showInst">Show Instruction</string>
     <string name="hideInst">hide Instruction</string>
+    <string name="title_activity_difficulty_option">DifficultyOption</string>
+    <string name="easy">EASY</string>
+    <string name="normal">NORMAL</string>
+    <string name="hard">HARD</string>
 
 </resources>

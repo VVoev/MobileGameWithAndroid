@@ -69,7 +69,7 @@ public class ObstacleManager implements GameObject {
             if (player.getRectangle().top > ob.getRectangle().top) {
                 score++;
                 if (score % Constants.GAME_SPEED == 0) {
-                    superSpeed += 0.1f;
+                    checkForGameHardness();
                 }
             }
 
@@ -85,7 +85,15 @@ public class ObstacleManager implements GameObject {
             //score++ can also be achieved here
         }
     }
-
+    private void checkForGameHardness(){
+        if(Constants.DIFICULTY_LEVEL == "EASY"){
+            superSpeed+=0.1f;
+        }else if(Constants.DIFICULTY_LEVEL == "NORMAL"){
+            superSpeed+=0.2f;
+        }else{
+            superSpeed+=0.3f;
+        }
+    }
     public void draw(Canvas canvas) {
         for (Obstacle ob : obstacles) {
             ob.draw(canvas);
