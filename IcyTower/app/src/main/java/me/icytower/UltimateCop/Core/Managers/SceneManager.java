@@ -1,4 +1,4 @@
-package me.icytower.UltimateCop.Core;
+package me.icytower.UltimateCop.Core.Managers;
 
 import android.graphics.Canvas;
 import android.view.MotionEvent;
@@ -6,6 +6,7 @@ import android.view.MotionEvent;
 import java.util.ArrayList;
 
 import me.icytower.UltimateCop.Contracts.Scene;
+import me.icytower.UltimateCop.Core.GamePlayScene;
 
 public class SceneManager {
 

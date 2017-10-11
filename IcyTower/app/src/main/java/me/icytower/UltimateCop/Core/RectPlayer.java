@@ -9,6 +9,8 @@ import android.graphics.Rect;
 
 import me.icytower.UltimateCop.Contracts.GameObject;
 import me.icytower.R;
+import me.icytower.UltimateCop.Core.Managers.AnimationManager;
+import me.icytower.UltimateCop.GlobalConstants.Constants;
 
 public class RectPlayer implements GameObject {
 

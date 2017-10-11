@@ -5,8 +5,9 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 
 import me.icytower.R;
+import me.icytower.UltimateCop.Contracts.Sound;
 
-public class SoundManager {
+public class SoundManager implements Sound {
 
     private int hitSound;
     private int bonusSound;

@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import me.icytower.UltimateCop.Core.Constants;
+import me.icytower.UltimateCop.GlobalConstants.Constants;
 import me.icytower.UltimateCop.Db.DbManager;
 import me.icytower.UltimateCop.Db.Scores;
 import me.icytower.R;
@@ -17,13 +17,11 @@ public class Result extends AppCompatActivity {
 
     private DbManager dbManager;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         this.dbManager = DbManager.getInstance(Constants.CONTEXT);
-
 
         TextView scoreLabel = (TextView)findViewById(R.id.scoreLabel);
         TextView highScoreLabel = (TextView)findViewById(R.id.highScoreLabel);
@@ -34,7 +32,6 @@ public class Result extends AppCompatActivity {
 
         Scores playerDetails = new Scores(playerName,score);
         dbManager.addNewScore(playerDetails);
-
         SharedPreferences settings = getSharedPreferences("GAME_DATA", Context.MODE_PRIVATE);
         int highScore = settings.getInt("HIGHSCORE",0);
 
@@ -47,7 +44,6 @@ public class Result extends AppCompatActivity {
         }else{
             highScoreLabel.setText("HighScore: "+highScore);
         }
-
     }
 
     public void tryAgain(View view){

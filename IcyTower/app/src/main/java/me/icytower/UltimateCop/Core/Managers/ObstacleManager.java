@@ -1,4 +1,4 @@
-package me.icytower.UltimateCop.Core;
+package me.icytower.UltimateCop.Core.Managers;
 
 
 import android.graphics.Canvas;
@@ -8,6 +8,9 @@ import android.graphics.Paint;
 import java.util.ArrayList;
 
 import me.icytower.UltimateCop.Contracts.GameObject;
+import me.icytower.UltimateCop.GlobalConstants.Constants;
+import me.icytower.UltimateCop.Core.Obstacle;
+import me.icytower.UltimateCop.Core.RectPlayer;
 
 public class ObstacleManager implements GameObject {
 
@@ -21,8 +24,18 @@ public class ObstacleManager implements GameObject {
     //speed of dropping the obstacles
     private int score = 0;
     private float superSpeed = 1;
-
     private long startTime;
+
+    private void populateObstaces() {
+        int currY = -5 * Constants.SCREEN_HEIGHT / 4;
+        while (currY < 0) {
+            int xStart = (int) (Math.random() * Constants.SCREEN_WIDTH - playerGap);
+            Obstacle currentObstacle = new Obstacle(obstacleHeight, color, xStart - 100, currY, playerGap);
+            obstacles.add(currentObstacle);
+            currY += obstacleHeight + obstacleGap;
+        }
+    }
+
 
     public ObstacleManager(int playerGap, int obstacleGap, int obstacleHeight, int color, RectPlayer player) {
         this.playerGap = playerGap;
@@ -35,10 +48,12 @@ public class ObstacleManager implements GameObject {
         obstacles = new ArrayList<>();
         populateObstaces();
     }
-    public int getScore(){
+
+    public int getScore() {
         return this.score;
     }
-    public void setScore(int score){
+
+    public void setScore(int score) {
         this.score = score;
     }
 
@@ -61,7 +76,6 @@ public class ObstacleManager implements GameObject {
             ob.incrementY((speed * elapsedTime) + superSpeed);
         }
 
-        //TODO refactor logic
         if (obstacles.get(obstacles.size() - 1).getRectangle().top >= Constants.SCREEN_HEIGHT) {
             int xStart = (int) (Math.random() * Constants.SCREEN_WIDTH - playerGap);
             obstacles.add(0, new Obstacle(
@@ -91,13 +105,4 @@ public class ObstacleManager implements GameObject {
         return false;
     }
 
-    private void populateObstaces() {
-        int currY = -5 * Constants.SCREEN_HEIGHT / 4;
-        while (currY < 0) {
-            int xStart = (int) (Math.random() * Constants.SCREEN_WIDTH - playerGap);
-            Obstacle currentObstacle = new Obstacle(obstacleHeight, color, xStart - 100, currY, playerGap);
-            obstacles.add(currentObstacle);
-            currY += obstacleHeight + obstacleGap;
-        }
-    }
 }

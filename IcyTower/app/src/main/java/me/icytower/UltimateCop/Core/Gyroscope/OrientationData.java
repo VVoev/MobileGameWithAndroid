@@ -1,10 +1,12 @@
-package me.icytower.UltimateCop.Core;
+package me.icytower.UltimateCop.Core.Gyroscope;
 
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+
+import me.icytower.UltimateCop.GlobalConstants.Constants;
 
 public class OrientationData implements SensorEventListener {
 
@@ -19,7 +21,7 @@ public class OrientationData implements SensorEventListener {
     private float[] startOrientation = null;
 
     public OrientationData(){
-        this.manager = (SensorManager)Constants.CONTEXT.getSystemService(Context.SENSOR_SERVICE);
+        this.manager = (SensorManager) Constants.CONTEXT.getSystemService(Context.SENSOR_SERVICE);
         this.accelerometer = manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         this.magnoMeter = manager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
     }

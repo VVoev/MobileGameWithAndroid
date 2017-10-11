@@ -1,14 +1,14 @@
 package me.icytower.UltimateCop.Core;
 
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import me.icytower.UltimateCop.Core.Managers.SceneManager;
 import me.icytower.UltimateCop.Db.DbManager;
-
+import me.icytower.UltimateCop.GlobalConstants.Constants;
 
 public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
 
@@ -17,7 +17,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
     private DbManager dbManager;
 
     public GamePanel(Context context) {
-        //don`t touch the parameters or it will explode
         super(context);
         getHolder().addCallback(this);
         Constants.CONTEXT = context;
@@ -53,7 +52,6 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback {
             }
             retry = false;
         }
-
     }
 
     @Override

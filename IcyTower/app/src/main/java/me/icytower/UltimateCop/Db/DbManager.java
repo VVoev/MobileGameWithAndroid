@@ -93,7 +93,7 @@ public class DbManager extends SQLiteOpenHelper {
         return dbString;
     }
 
-    //Sort
+    //SORT
     public String giveMeBestTenPlayers() {
         int i = 1;
         String dbString = "";

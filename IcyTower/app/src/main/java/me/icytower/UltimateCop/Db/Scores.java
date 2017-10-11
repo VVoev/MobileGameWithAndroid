@@ -5,7 +5,9 @@ public class Scores {
     private int score;
     private String playerInitials;
 
-    public Scores() {}
+    public Scores() {
+
+    }
 
     public Scores(String playerInitials,int score) {
         this.playerInitials = playerInitials;
@@ -19,5 +21,4 @@ public class Scores {
     public String getPlayerInitials() {return playerInitials;}
 
     public void setPlayerInitials(String playerInitials) {this.playerInitials = playerInitials;}
-
 }

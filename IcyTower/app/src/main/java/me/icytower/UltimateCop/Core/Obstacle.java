@@ -5,6 +5,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 
 import me.icytower.UltimateCop.Contracts.GameObject;
+import me.icytower.UltimateCop.GlobalConstants.Constants;
 
 public class Obstacle implements GameObject {
 
@@ -15,10 +16,14 @@ public class Obstacle implements GameObject {
     private int speed = 1;
 
     public Obstacle(int rectHeight, int color, int startX, int startY, int playerGap) {
-        this.color = color;
         //L,R,D,U
+        this.color = color;
         this.rectangle = new Rect(0, startY, startX, startY + rectHeight);
         this.rectangle2 = new Rect(startX + playerGap + Constants.LEVEL_ADDITIONALGAP, startY, Constants.SCREEN_WIDTH, startY + rectHeight);
+    }
+
+    private long provideMeDate() {
+        return System.currentTimeMillis();
     }
 
     public Rect getRectangle() {
@@ -40,17 +45,13 @@ public class Obstacle implements GameObject {
         rectangle2.bottom += y * speed;
     }
 
-    @Override
-    public void update() {
-
-    }
-
     public boolean isPlayerColiding(RectPlayer player) {
         return Rect.intersects(rectangle, player.getRectangle()) ||
                 Rect.intersects(rectangle2, player.getRectangle());
     }
 
-    private long provideMeDate() {
-        return System.currentTimeMillis();
+    @Override
+    public void update() {
+
     }
 }

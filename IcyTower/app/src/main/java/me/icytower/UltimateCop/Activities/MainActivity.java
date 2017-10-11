@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 
-import me.icytower.UltimateCop.Core.Constants;
+import me.icytower.UltimateCop.GlobalConstants.Constants;
 import me.icytower.UltimateCop.Db.DbManager;
 import me.icytower.R;
 
@@ -48,10 +48,6 @@ public class MainActivity extends AppCompatActivity {
     public void ResultView(View view){
         Intent result = new Intent(this,Result.class);
         startActivity(result);
-    }
-
-    private void changeActivity(View view){
-
     }
 
 }

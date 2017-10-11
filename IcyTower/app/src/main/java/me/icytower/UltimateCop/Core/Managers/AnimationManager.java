@@ -1,7 +1,9 @@
-package me.icytower.UltimateCop.Core;
+package me.icytower.UltimateCop.Core.Managers;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;
+
+import me.icytower.UltimateCop.Core.Animation;
 
 public class AnimationManager {
     private Animation[] animations;
@@ -23,10 +25,8 @@ public class AnimationManager {
         animationIndex = index;
     }
 
-
-
     public void draw(Canvas canvas, Rect rect) {
-            animations[animationIndex].draw(canvas,rect);
+        animations[animationIndex].draw(canvas, rect);
     }
 
     public void update() {

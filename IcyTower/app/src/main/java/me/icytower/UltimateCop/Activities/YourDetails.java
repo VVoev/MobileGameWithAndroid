@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import me.icytower.UltimateCop.Core.Constants;
+import me.icytower.UltimateCop.GlobalConstants.Constants;
 import me.icytower.R;
 
 public class YourDetails extends AppCompatActivity {

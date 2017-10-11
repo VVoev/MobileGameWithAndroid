@@ -10,6 +10,10 @@ import android.widget.TextView;
 import me.icytower.R;
 
 public class Instructions extends AppCompatActivity {
+    final String showInst = "Show Instruction";
+    final String hideInst = "Hide Instructions";
+    final String debug = "Debugging";
+
     Button btn;
     TextView txt;
     ImageView iv;
@@ -26,23 +30,22 @@ public class Instructions extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String text = (String)btn.getText();
-                if(text == "Show Instruction"){
-                    btn.setText("Hide Instructions");
+                String text = (String) btn.getText();
+                if (text == showInst) {
+                    btn.setText(hideInst);
                     iv.setBackgroundResource(R.drawable.rules);
-                }else{
-                    btn.setText("Show Instruction");
+                } else {
+                    btn.setText(showInst);
                     iv.setBackgroundResource(0);
                 }
             }
-
         });
 
         btn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
+            //Debugging purposes ;)
             public boolean onLongClick(View v) {
-                //Debuging purposes ;)
-                txt.setText("Hello Vlado,Nice to see you");
+                txt.setText(debug);
                 return false;
             }
         });

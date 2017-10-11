@@ -9,7 +9,6 @@ import android.graphics.Rect;
 public class Animation {
     private Bitmap[] frames;
     private int frameIndex;
-
     private float frameTime;
     private long lastFrame;
 
@@ -17,6 +16,15 @@ public class Animation {
 
     private long setLastFrame() {
         return System.currentTimeMillis();
+    }
+
+    private void scaleRect(Rect rect) {
+        float whRatio = (float)(frames[frameIndex].getWidth()) / frames[frameIndex].getHeight();
+        if (rect.width() > rect.height()) {
+            rect.left = rect.right - (int) (rect.height() * whRatio);
+        } else {
+            rect.top = rect.bottom - (int) (rect.width() * (1 / whRatio));
+        }
     }
 
     public Animation(Bitmap[] frames, float animTimes) {
@@ -41,25 +49,8 @@ public class Animation {
     }
 
     public void draw(Canvas canvas, Rect destination) {
-        //nothing to draw
-//        if (!isPlaying) {
-//            return;
-//        }
-
         scaleRect(destination);
-
         canvas.drawBitmap(frames[frameIndex], null, destination, new Paint());
-    }
-
-    private void scaleRect(Rect rect) {
-        float whRatio = (float)(frames[frameIndex].getWidth()) / frames[frameIndex].getHeight();
-        //System.out.println(whRatio);
-
-        if (rect.width() > rect.height()) {
-            rect.left = rect.right - (int) (rect.height() * whRatio);
-        } else {
-            rect.top = rect.bottom - (int) (rect.width() * (1 / whRatio));
-        }
     }
 
     public void update() {

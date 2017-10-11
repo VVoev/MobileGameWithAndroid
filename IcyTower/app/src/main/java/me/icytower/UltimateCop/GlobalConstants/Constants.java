@@ -1,4 +1,4 @@
-package me.icytower.UltimateCop.Core;
+package me.icytower.UltimateCop.GlobalConstants;
 
 import android.content.Context;
 
@@ -18,7 +18,8 @@ public class Constants {
     public static int GAME_SPEED = 10;
     public static long INIT_TIME;
     public static int OFFSET = 50;
-    public static int BORDER = 75; //it is used for putting the coin into the main rectangle
+    public static int BORDER = 75;
+
     //Gyroscope
     public static float SLOW_THE_TIME = 1000f;
 
@@ -29,5 +30,5 @@ public class Constants {
     public static int COIN_PTS = 500;
 
     //Player name
-    public static String PLAYER_NAME = "Anonymous";
+    public static String PLAYER_NAME = "AAA";
 }

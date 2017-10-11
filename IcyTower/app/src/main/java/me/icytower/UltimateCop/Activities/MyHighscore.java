@@ -8,7 +8,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import me.icytower.UltimateCop.Core.Constants;
+import me.icytower.UltimateCop.GlobalConstants.Constants;
 import me.icytower.UltimateCop.Db.DbManager;
 import me.icytower.UltimateCop.Db.Scores;
 import me.icytower.R;
@@ -44,13 +44,23 @@ public class MyHighscore extends AppCompatActivity {
         relativeLayout.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                //Debuging purposes ;)
+                //Debugging purposes ;)
                 addToDb.setVisibility(v.VISIBLE);
                 deleteFromDb.setVisibility(v.VISIBLE);
                 userText.setVisibility(v.VISIBLE);
                 return false;
             }
         });
+    }
+
+    private void printDatabase() {
+        String databaseString = dbManager.databaseToString();
+        highscoreTextView.setText(databaseString);
+    }
+
+    private void giveMeTopTenPlayers(){
+        String databaseString = dbManager.giveMeBestTenPlayers();
+        highscoreTextView.setText(databaseString);
     }
 
     public void addButtonClicked(View v){
@@ -66,16 +76,4 @@ public class MyHighscore extends AppCompatActivity {
         userText.setText("");
         giveMeTopTenPlayers();
     }
-
-    private void printDatabase() {
-        String databaseString = dbManager.databaseToString();
-        highscoreTextView.setText(databaseString);
-    }
-
-    private void giveMeTopTenPlayers(){
-        String databaseString = dbManager.giveMeBestTenPlayers();
-        highscoreTextView.setText(databaseString);
-    }
-
-
 }

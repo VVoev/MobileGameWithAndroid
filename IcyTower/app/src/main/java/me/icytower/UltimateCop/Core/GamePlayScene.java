@@ -13,8 +13,12 @@ import android.view.MotionEvent;
 
 import me.icytower.UltimateCop.Activities.Result;
 import me.icytower.UltimateCop.Contracts.Scene;
+import me.icytower.UltimateCop.Core.Gyroscope.OrientationData;
+import me.icytower.UltimateCop.Core.Managers.ObstacleManager;
+import me.icytower.UltimateCop.Core.Managers.SceneManager;
 import me.icytower.UltimateCop.Core.Sound.SoundManager;
 import me.icytower.R;
+import me.icytower.UltimateCop.GlobalConstants.Constants;
 
 
 public class GamePlayScene implements Scene {
@@ -25,6 +29,7 @@ public class GamePlayScene implements Scene {
 
     private SoundManager soundManager;
     private RectPlayer player;
+    private BadGuy badGuy;
     private Point playerPoint;
     private ObstacleManager obstacleManager;
 
@@ -36,7 +41,6 @@ public class GamePlayScene implements Scene {
     private OrientationData orientationData;
     private long frameTime;
 
-    private BadGuy badGuy;
 
     public GamePlayScene() {
         player = new RectPlayer(new Rect(100, 100, 300, 200), Color.rgb(255, 0, 0));
@@ -50,7 +54,6 @@ public class GamePlayScene implements Scene {
                 player);
         badGuy = new BadGuy(50, 50, 150, Color.rgb(255, 0, 0), player, obstacleManager);
         soundManager = new SoundManager(Constants.CONTEXT);
-
 
         orientationData = new OrientationData();
         orientationData.register();

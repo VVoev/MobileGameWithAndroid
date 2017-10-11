@@ -25,15 +25,16 @@ public class MainThread extends Thread {
         this.gamePannel = gamePanel;
     }
 
-    //TODO LEAVE IT FOR NOW
-    //Override default sleep since its deprecated in thread
-    //    public void wait(int time){
-    //        try {
-    //            Thread.sleep(time);
-    //        } catch (InterruptedException e) {
-    //            e.printStackTrace();
-    //        }
-    //    }
+    /*
+    Override default sleep since its deprecated in thread
+        public void wait(int time){
+            try {
+                Thread.sleep(time);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    */
 
     @Override
     public void run() {
@@ -65,11 +66,12 @@ public class MainThread extends Thread {
                     }
                 }
             }
+
             timeMiliseconds = (System.nanoTime() - startTime) / ONE_MILLION;
             waitTime = targetTime - timeMiliseconds;
             try {
                 if (waitTime > 0) {
-                    this.sleep(waitTime);
+                    //this.sleep(waitTime);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -82,11 +84,9 @@ public class MainThread extends Thread {
                 averageFPS = 1000 / operation;
                 frameCount = 0;
                 totalTime = 0;
-                //debugging
                 //System.out.println(averageFPS);
             }
         }
     }
-
 
 }

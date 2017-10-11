@@ -11,7 +11,10 @@ import java.util.Random;
 
 import me.icytower.R;
 import me.icytower.UltimateCop.Contracts.GameObject;
+import me.icytower.UltimateCop.Core.Managers.AnimationManager;
+import me.icytower.UltimateCop.Core.Managers.ObstacleManager;
 import me.icytower.UltimateCop.Core.Sound.SoundManager;
+import me.icytower.UltimateCop.GlobalConstants.Constants;
 
 public class BadGuy implements GameObject {
     private Rect rectangle;
@@ -55,7 +58,7 @@ public class BadGuy implements GameObject {
         if (!isBadGuyTakenByThePlayer(player)) {
             //debug mode canvas.drawRect(rectangle, paint);
             //Production mode
-             animManager.draw(canvas,rectangle);
+            animManager.draw(canvas, rectangle);
         } else {
             soundManager.playBonusSound();
             generateBadGuyRandomPosition();
