@@ -25,7 +25,7 @@ public class Constants {
     //Animation
     public static Context CONTEXT;
 
-    //Coin bonus pts
+    //BadGuy bonus pts
     public static int COIN_PTS = 500;
 
     //Player name

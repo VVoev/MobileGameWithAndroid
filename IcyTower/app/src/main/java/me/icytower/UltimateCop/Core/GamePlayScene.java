@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
-import android.os.SystemClock;
 import android.view.Display;
 import android.view.MotionEvent;
 
@@ -37,7 +36,7 @@ public class GamePlayScene implements Scene {
     private OrientationData orientationData;
     private long frameTime;
 
-    private Coin coin;
+    private BadGuy badGuy;
 
     public GamePlayScene() {
         player = new RectPlayer(new Rect(100, 100, 300, 200), Color.rgb(255, 0, 0));
@@ -49,7 +48,7 @@ public class GamePlayScene implements Scene {
                 Constants.LEVEL_OBSTACLETHICKNESS,
                 Color.BLACK,
                 player);
-        coin = new Coin(50, 50, 150, Color.rgb(255, 0, 0), player, obstacleManager);
+        badGuy = new BadGuy(50, 50, 150, Color.rgb(255, 0, 0), player, obstacleManager);
         soundManager = new SoundManager(Constants.CONTEXT);
 
 
@@ -119,7 +118,7 @@ public class GamePlayScene implements Scene {
 
         player.draw(canvas);
         obstacleManager.draw(canvas);
-        coin.draw(canvas);
+        badGuy.draw(canvas);
 
         if (isGameOver) {
             Paint paint = new Paint();
@@ -192,7 +191,7 @@ public class GamePlayScene implements Scene {
                 Constants.LEVEL_OBSTACLETHICKNESS,
                 Color.BLACK,
                 player);
-        coin = new Coin(50, 50, 150, Color.rgb(255, 0, 0), player, obstacleManager);
+        badGuy = new BadGuy(50, 50, 150, Color.rgb(255, 0, 0), player, obstacleManager);
         movingPlayer = false;
     }
 }
