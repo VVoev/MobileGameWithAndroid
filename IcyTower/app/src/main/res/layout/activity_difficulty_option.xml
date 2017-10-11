@@ -1,33 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="me.icytower.UltimateCop.Activities.DifficultyOption">
-
-    <android.support.design.widget.AppBarLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/icytower2"
+    tools:context="me.icytower.UltimateCop.Activities.MainActivity">
+    <LinearLayout
+        android:id="@+id/instructionsLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_difficulty_option" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3">
+        <TextView
+            android:id="@+id/sasa"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_weight="2"
+            android:background="@color/white"
+            android:textStyle="italic"
+            android:text="@string/title_activity_difficulty_option"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3">
+        <Button
+            android:id="@+id/easy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:layout_weight="2"
+            android:background="@drawable/roundshapebutton"
+            android:onClick="initializeNewGame"
+            android:textStyle="italic"
+            android:text="@string/easy"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout1"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3">
+        <Button
+            android:id="@+id/normal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/button_margin"
+            android:layout_weight="2"
+            android:background="@drawable/yellowbutton"
+            android:textStyle="italic"
+            android:onClick="initializeNewGame"
+            android:text="@string/normal"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout2"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3">
 
-</android.support.design.widget.CoordinatorLayout>
+        <Button
+            android:id="@+id/hard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/button_margin"
+            android:layout_weight="2"
+            android:background="@drawable/backbutton"
+            android:textStyle="italic"
+            android:onClick="initializeNewGame"
+            android:text="@string/hard"
+            android:textSize="20sp" />
+    </LinearLayout>
+</RelativeLayout>
