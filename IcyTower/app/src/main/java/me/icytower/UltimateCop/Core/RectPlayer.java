@@ -19,7 +19,6 @@ public class RectPlayer implements GameObject {
     private Animation walkLeft;
     private Animation walkRight;
 
-    private Animation coinIdle;
 
     private AnimationManager animManager;
 
@@ -34,21 +33,17 @@ public class RectPlayer implements GameObject {
         Bitmap walk1 = bf.decodeResource(Constants.CONTEXT.getResources(), R.drawable.f2);
         Bitmap walk2 = bf.decodeResource(Constants.CONTEXT.getResources(), R.drawable.f3);
 
-        Bitmap coin = bf.decodeResource(Constants.CONTEXT.getResources(), R.drawable.coin);
 
         idle = new Animation(new Bitmap[]{idleImage}, 2);
         walkRight = new Animation(new Bitmap[]{walk1, walk2}, 0.5f);
-        coinIdle = new Animation(new Bitmap[]{coin}, 0.5f);
 
         Matrix m = new Matrix();
         m.preScale(-1, 1);
         walk1 = Bitmap.createBitmap(walk1, 0, 0, walk1.getWidth(), walk1.getHeight(), m, false);
         walk2 = Bitmap.createBitmap(walk2, 0, 0, walk2.getWidth(), walk2.getHeight(), m, false);
 
-        coin = Bitmap.createBitmap(coin, 0, 0, coin.getWidth(), coin.getHeight(), m, false);
 
         walkLeft = new Animation(new Bitmap[]{walk1, walk2}, 0.5f);
-        coinIdle = new Animation(new Bitmap[]{coin}, 0.5f);
         animManager = new AnimationManager(new Animation[]{idle, walkLeft, walkRight});
     }
 

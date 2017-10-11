@@ -42,9 +42,9 @@ public class Animation {
 
     public void draw(Canvas canvas, Rect destination) {
         //nothing to draw
-        if (!isPlaying) {
-            return;
-        }
+//        if (!isPlaying) {
+//            return;
+//        }
 
         scaleRect(destination);
 

@@ -26,9 +26,7 @@ public class AnimationManager {
 
 
     public void draw(Canvas canvas, Rect rect) {
-        if (animations[animationIndex].isPlaying()) {
-            animations[animationIndex].draw(canvas, rect);
-        }
+            animations[animationIndex].draw(canvas,rect);
     }
 
     public void update() {
